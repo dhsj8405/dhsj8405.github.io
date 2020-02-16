@@ -1,0 +1,57 @@
+/* 웹페이지안에 css안에 삽입하는방법 1. style태그사용 2. styel속성사용 */
+/*  1. style태그// css를포함시시키위해사용, css와 html은 완전히 다른언어이기때문에 웹브라우저가 어디서부터 어디까지 css인지 알 수 이있게하기위해사용" */
+a{                              /* a{}:선택자(selector) //스타일태그안에 이 웹페이지에서 주고싶은효과를 누구에게 줄것인지 선택한다 */
+    color:black;                /* 효과(declaration)// a 태그의 폰트색을 green로 바꿈 css문법 */
+                                /* color : 속성(property), red : 값(value) */
+    text-decoration: none;      /* 밑줄을 만들고 없애는 속성 :밑줄이 마음에 안들거나할 때, 모든 a태그에 장식(밑줄)이 없어짐 */
+    /* 효과를 지정하고 끝에 하나의 description의 시작과 끝을 구분하는 세미콜론 써줌 */
+}
+/* saw라는 클래스의 값을 가지고있는 모든 태그의 폰트 칼라를 그레이로  */
+/* saw: 웹페이지 모든 saw라는 이름의 태그를 선택하는 선택자  */
+/* .saw : 클래스값이 saw인 태그를 가리키는 선택자 */
+/* #active{
+  color:red;
+} */
+/* .saw{
+  color:gray;
+} */
+              /* 우선순위 id 선택자 > class선택자> 클래스 선택자 : a  */
+              /* 동일한 선택자에선 맨밑의 선택자가 우선순위 제일 높다 */
+h1{
+  font-size: 45px;
+  text-align: center;
+  border-bottom :1px solid gray;
+  margin:0;
+  padding:20px;
+}
+ol{
+  border-right:1px solid gray;
+  width:100px;
+  margin:0;
+  padding:20px;
+}
+body{
+  margin:0;
+}
+#grid{
+  display:grid;
+  grid-template-columns: 150px 1fr;
+}
+#grid ol{
+  /* 부모가 grid인 ol */
+  padding-left:33px;
+}
+#grid #article{
+  padding-left:25px;
+}
+@media(max-width:800px){
+  #grid{
+    display:block;
+  }
+  ol{
+    border-right:none;
+  }
+  h1{
+    border-bottom :none;
+  }
+}

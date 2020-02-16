@@ -3,55 +3,75 @@
   <head>
     <title>WEB1 - CSS</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href ="style.css">
   </head>
-  <body>
-    <h1><a href="index.html">WEB</a></h1>
-    <ol>
-      <li><a href="1.html">HTML</a></li>
-      <li><a href="2.html">CSS</a></li>
-      <li><a href="3.html">JavaScript</a></li><br>
-    </ol>
-    <h2>CSS</h2>
-    <p>종속형 시트 또는 캐스케이딩 스타일 시트(Cascading Style Sheets, CSS)는 마크업 언어가 실제 표시되는 방법을 기술하는 언어로[1], HTML과 XHTML에 주로 쓰이며, XML에서도 사용할 수 있다. W3C의 표준이며, 레이아웃과 스타일을 정의할 때의 자유도가 높다.
-        현재 개발 중인 CSS3의 경우 그림자 효과, 그라데이션, 변형 등 그래픽 편집 프로그램으로 제작한 이미지를 대체할 수 있는 기능이 추가되었다. 또한 다양한 애니메이션 기능이 추가되어 어도비 플래시를 어느 정도 대체하고 있다.
-        마크업 언어가 웹사이트의 몸체를 담당한다면 CSS는 옷과 액세서리 같은 꾸미는 역할을 담당한다고 할 수 있다. 즉, HTML 구조는 그대로 두고 CSS 파일만 변경해도 전혀 다른 웹사이트처럼 꾸밀 수 있다.
-    </p>
-    <p>
-          <div id="disqus_thread"></div>
-    <script>
+    <body>
+        <h1><a href="index.html">WEB</a></h1>
+        <div id="grid">
+            <ol>
+                <li><a href="1.html">HTML</a></li>
+                <!-- <li><a href="1.html" class ="saw">HTML</a></li> -->
+                <!-- saw라고하는 클래스 값을가진 태그 두개를 만든  , class:같은 의도를 나타낼때,grouping할때 쓰임  -->
+                <li><a href="2.html">CSS</a></li>
+                <!-- <li><a href="2.html" class ="saw" id="active">CSS</a></li>  -->
+                <!-- 클래스라고하는 속성의 값은 여러개의 값을 가질수있다. 띄어쓰기로 구분, 하나의 태그에 여러개의 속성이 들어올수있고 여러개의선택자로 하나의 태그를 공동으로 제어할때 사용  -->
+                <!-- 웹페이지에서 id값이 active인태그를 선택하려고할때 사용 // id값(active)은 중복안됨:유일무이  -->
+                <li><a href="3.html">JavaScript</a></li><br>
+            </ol>
+              <!-- 폰트 태그로 글자색변경
+              <h1><a href="index.html"><font color = "red">WEB</font></a></h1>
+              <ol>
+                <li><a href="1.html"><font color = "red">HTML</font></a></li>
+                <li><a href="2.html" style ="color:red;text-decoration:underline"><font color = "red">CSS</font></a></li>  style = "" :style(html 속성) // 속성의 값을 css문법에따 해석, 해석된결과를 스타일 속성이 위치한 태그에 적용
+                                                                                                                           styel 속성은 값으로 css효과("color:red")가 들어와야한다
+                <li><a href="3.html"><font color = "red">JavaScript</font></a></li><br>
+              </ol>
+              -->
+            <div id="article">
+                <h2>CSS</h2>
+                <p>종속형 시트 또는 캐스케이딩 스타일 시트(Cascading Style Sheets, CSS)는 마크업 언어가 실제 표시되는 방법을 기술하는 언어로[1], HTML과 XHTML에 주로 쓰이며, XML에서도 사용할 수 있다. W3C의 표준이며, 레이아웃과 스타일을 정의할 때의 자유도가 높다.
+                    현재 개발 중인 CSS3의 경우 그림자 효과, 그라데이션, 변형 등 그래픽 편집 프로그램으로 제작한 이미지를 대체할 수 있는 기능이 추가되었다. 또한 다양한 애니메이션 기능이 추가되어 어도비 플래시를 어느 정도 대체하고 있다.
+                    마크업 언어가 웹사이트의 몸체를 담당한다면 CSS는 옷과 액세서리 같은 꾸미는 역할을 담당한다고 할 수 있다. 즉, HTML 구조는 그대로 두고 CSS 파일만 변경해도 전혀 다른 웹사이트처럼 꾸밀 수 있다.
+                </p>
+                <p>
+                    <!-- 댓글기능 -->
+                        <div id="disqus_thread"></div>
+                  <script>
 
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://web1-vooodqokgl.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                  /**
+                  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                  /*
+                  var disqus_config = function () {
+                  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                  };
+                  */
+                  (function() { // DON'T EDIT BELOW THIS LINE
+                  var d = document, s = d.createElement('script');
+                  s.src = 'https://web1-vooodqokgl.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+                  })();
+                  </script>
+                  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-    </p>
-    <!--채팅기능-->
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/5e3bba52298c395d1ce6777b/default';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
-  </body>
+                </p>
+            </div>
+        </div>
+        <!--채팅기능-->
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5e3bba52298c395d1ce6777b/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+        </script>
+        <!--End of Tawk.to Script-->
+    </body>
 </html>
