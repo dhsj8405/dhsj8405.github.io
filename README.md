@@ -1,80 +1,46 @@
-## My Stack Problems
 
-> This project forked and has been modified from [A simple grey theme for Jekyll](https://github.com/liamsymonds/simplygrey-jekyll),
-> and the search posts using [Super Search](https://github.com/chinchang/super-search)
+## 소개
 
-### Demo
-* [https://agusmakmun.github.io](https://agusmakmun.github.io)
+안녕하세요, 저는 박민입니다. 재밌는 것과 디자인, 개발을 좋아하는 개발자입니다.
 
-#### Features
+다른 사람들에게 영감과 영향을 주고 싶어서 개발자가 되었습니다. 전세계 사람들의 여행을 바꾼 에어비엔비, 일상을 바꾼 페이스북등을 존경합니다.
 
-* Sitemap and XML Feed
-* Pagination in homepage
-* Posts under category
-* Realtime Search Posts _(title & description)_ by query.
-* Related Posts
-* Highlight pre
-* Next & Previous Post
-* Disqus comment
-* Projects page & Detail Project page
-* Share on social media
-* Google analytics
-* HTML Minify _(Compress HTML)_ using [Jekyll Compress HTML](https://github.com/penibelst/jekyll-compress-html)
+예쁘고 단순한 것을 좋아합니다. React를 주로 사용하며 최근엔 프론트엔드를 위주로 공부하고 있습니다.
 
-#### Screenshot
+사람들을 만나는 걸 좋아하고, 그들과 함께 웃는 것을 좋아합니다. 혼자 어디 박혀서 코딩한다거나 뒹굴거리는 시간도 좋아합니다. 좋아하는게 많은 타입인 것 같아요.
 
-![Screenshot Post Page](https://raw.githubusercontent.com/agusmakmun/agusmakmun.github.io/master/static/img/screenshot-post-page.png  "Screenshot Post Page")
+시스템을 상당히 좋아합니다. 서비스의 체계뿐만 아니라, 조직 체계, 운영 체계등 올바르게 돌아갈 수 있도록 뒷받침해주는 시스템적인 요소를 좋아합니다.
 
-### Install & Configuration
+CTO가 되는게 가장 큰 직업적 목표입니다.
 
-1. Fork this repository
-2. Edit site settings inside file of `_config.yml`
-3. Edit your projects at file of `projects.md`, `_data/projects.json` and inside path of `_project/` _(for detail project)_.
-4. Edit about yourself inside file of `about.md`
+반갑습니다.
 
-### How to Use?
+## 약력
 
-**a. Add new Category**
+- 위즈돔에서 Spring기반의 굿모닝미리(경기도 좌석예약버스)앱 개발
 
-All categories saved inside path of `category/`, you can see the existed categories.
+- 위즈돔에서 React로 SK/Kakao 통근 버스 예약 앱 개발
 
-**b. Add new Posts**
+- 이해라이프스타일에서 ReactNative로 홈퍼니싱 하이브리드 앱 개발
 
-* All posts bassed on markdown syntax _(please googling)_. allowed extensions is `*.markdown` or `*.md`.
-* This files can found at the path of `_posts/`.
-* and the name of files are following `<date:%Y-%m-%d>-<slug>.<extension>`, for example:
+- 숭실대학교 IT대학 컴퓨터학부 전공
 
-```
-2013-09-23-welcome-to-jekyll.md
+- 숭실대학교 IT대학 학생회장
 
-# or
+- 계남초/계남중/계남고 졸업
 
-2013-09-23-welcome-to-jekyll.markdown
-```
+- 경기도 부천 출생
 
-Inside the file of it,
+## 사이드프로젝트
 
-```
----
-layout: post                          # (require) default post layout
-title: "Your Title"                   # (require) a string title
-date: 2016-04-20 19:51:02 +0700       # (require) a post date
-categories: [python, django]          # (custom) some categories, but makesure these categories already exists inside path of `category/`
-tags: [foo, bar]                      # (custom) tags only for meta `property="article:tag"`
-image: Broadcast_Mail.png             # (custom) image only for meta `property="og:image"`, save your image inside path of `static/img/_posts`
----
+- [react-redux-material-meteor](https://github.com/isme2n/react-redux-material-meteor) - 보일러 플레이트
 
-# your content post with markdown syntax goes here...
-```
+- [48Wedding](http://48wedding.com) - 웨딩카드 만들기 서비스
 
+- [secretary](https://chrome.google.com/webstore/detail/secretary/bijcgcgbhmeemlnidoigdcnokggknikb?hl=ko) - 기사요약 크롬 확장서비스
 
-#### Installing in your local
+## 하고싶은 말
 
-```
-bundle install
-jekyll serve
-```
+다양한 사이드 프로젝트 제안, 친구 제안, 번개 제안 등등 해주시면 좋아합니다.
 
-### Contributing
-
-Feel free to [open a bug](https://github.com/agusmakmun/agusmakmun.github.io/issues) or [contribute to code](https://github.com/agusmakmun/agusmakmun.github.io/pulls)!
+행복하세요 오늘도.
