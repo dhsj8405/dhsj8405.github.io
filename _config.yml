@@ -31,6 +31,8 @@ urls:
       url: /projects/
     - text: XML Feed
       url: /feed.xml
+    - text: 개발 기록
+      url: /projects/      
 
 url: "https://dhsj8405.github.io"
 baseurl: ""
