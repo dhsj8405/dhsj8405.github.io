@@ -2,7 +2,7 @@
 layout: list
 title: Review
 slug: review
-menu: true
+menu: false
 submenu: true
 order: 6
 description: >

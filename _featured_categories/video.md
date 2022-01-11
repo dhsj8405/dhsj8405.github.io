@@ -2,7 +2,7 @@
 layout: list
 title: Video
 slug: video
-menu: true
+menu: false
 submenu: true
 order: 5
 description: >

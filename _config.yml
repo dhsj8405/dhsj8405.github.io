@@ -22,8 +22,8 @@ description:         >
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
-  name:              aiden min
-  email:             zoqozqz@gmail.com
+  name:              donghyeon woo
+  email:             dhsj8405@naver.com
 
 # Fallback image and color
 image:               /assets/img/nav.jpg
@@ -47,10 +47,10 @@ google_fonts:        Lato
 google_analytics:    UA-92346434-1
 
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    isme2n
+disqus_shortname:    woo
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2017. by isme2n'
+copyright:           '&copy; 2022. by DongHyeon Woo'
 
 # Format of the permalinks
 permalink:           pretty

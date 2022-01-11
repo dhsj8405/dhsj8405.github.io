@@ -2,7 +2,7 @@
 layout: list
 title: Tip
 slug: tip
-menu: true
+menu: false
 submenu: false
 order: 4
 description: >

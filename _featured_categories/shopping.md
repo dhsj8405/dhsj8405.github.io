@@ -2,7 +2,7 @@
 layout: list
 title: Shopping
 slug: shopping
-menu: true
+menu: false
 submenu: false
 order: 6
 description: >
