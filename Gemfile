@@ -6,3 +6,7 @@ gem "jekyll-feed", "~> 0.9"
 gem "jekyll-sitemap", "~> 1.0"
 gem "jekyll-redirect-from", "~> 0.12"
 gem "classifier-reborn"
+gem "kramdown-parser-gfm"
+
+# Added at 2022-01-11 21:43:08 +0900 by desktop-woo\administrator:
+gem "webrick", "~> 1.7"
