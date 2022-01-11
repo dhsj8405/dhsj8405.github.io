@@ -30,9 +30,7 @@ urls:
       url: /about/
     - text: My Projects
       url: /projects/
-    - text: XML Feed
-      url: /feed.xml     
-
+      
 url: "https://dhsj8405.github.io"
 baseurl: ""
 paginate: 20
