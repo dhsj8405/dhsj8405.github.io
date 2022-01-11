@@ -17,12 +17,6 @@ collections:
 social:
     - icon: fa-facebook
       link: "#"
-    - icon: fa-twitter
-      link: "#"
-    - icon: fa-linkedin
-      link: "#"
-    - icon: fa-stack-exchange
-      link: "#"
     - icon: fa-github
       link: "https://github.com/dhsj8405"
 
