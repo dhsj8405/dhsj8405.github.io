@@ -1,7 +1,7 @@
 encoding: utf-8
 title: Stack Problems
 description: My Personal Stack Problems
-author: test
+author: 우동현
 github: https://github.com/dhsj8405
 about: test
 disqus_shortname: stackproblems
@@ -30,7 +30,7 @@ urls:
       url: /about/
     - text: My Projects
       url: /projects/
-      
+
 url: "https://dhsj8405.github.io"
 baseurl: ""
 paginate: 20
