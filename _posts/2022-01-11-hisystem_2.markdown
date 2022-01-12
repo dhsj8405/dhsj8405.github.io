@@ -62,7 +62,7 @@ WebSocket은 실시간 알림 및 채팅 기능에서 사용되었습니다.
 진료가 끝나고 수납을 완료한 환자의 진단서나 처방전을 발급 받을 수 있습니다.
 
 증명서 양식을 컴포넌트화 해서 react-to-print npm 모듈로 화면 전체가 아닌 지정된 컴포넌트(증명서 양식)만 출력 됩니다.
-![2022-01-12-19-48-54](https://user-images.githubusercontent.com/60701130/149144112-814b65b5-446d-4d0d-90ad-04ea040ba6ef.png)
+![image](https://user-images.githubusercontent.com/60701130/149144314-96438e80-26eb-435f-8dd2-111412d0bd8d.png)
 
 증명서 양식에 기제한 내용  
 
