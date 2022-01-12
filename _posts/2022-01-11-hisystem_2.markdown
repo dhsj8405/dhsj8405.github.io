@@ -34,7 +34,8 @@ tags: hisystem
 ## 설계 및 구현
 
 ### 시스템 구조 및 개발환경
-![](2022-01-12-19-30-09.png)
+![2022-01-12-19-30-09](https://user-images.githubusercontent.com/60701130/149143946-60c14523-835b-4317-88dd-59a5b83379aa.png)
+
 spring boot와 react 기반의 (single page) application 입니다
 
 REST API 기반의 프로젝트이기 때문에 모든 통신을 비동기로 이루어 지며, JWT 인증방식을 사용했습니다. 
@@ -47,7 +48,7 @@ JPA는 비교적 간단한 부가 기능들을 구현할 때 사용해서 생산
 WebSocket은 실시간 알림 및 채팅 기능에서 사용되었습니다.
 
 ### flow chart
-![](2022-01-12-19-40-12.png)
+![2022-01-12-19-40-12](https://user-images.githubusercontent.com/60701130/149144010-0170962a-600f-48af-b040-958471a9c4b9.png)
 
 ---
 
@@ -56,17 +57,23 @@ WebSocket은 실시간 알림 및 채팅 기능에서 사용되었습니다.
 
 ### 제증명관리 페이지
 
-![](2022-01-12-19-47-19.png)
-
+![2022-01-12-19-47-19](https://user-images.githubusercontent.com/60701130/149144066-679fe33c-f86f-4b9d-8321-1807bce086c1.png)
 
 진료가 끝나고 수납을 완료한 환자의 진단서나 처방전을 발급 받을 수 있습니다.
 
 증명서 양식을 컴포넌트화 해서 react-to-print npm 모듈로 화면 전체가 아닌 지정된 컴포넌트(증명서 양식)만 출력 됩니다.
-![](2022-01-12-19-48-54.png)
+![2022-01-12-19-48-54](https://user-images.githubusercontent.com/60701130/149144112-814b65b5-446d-4d0d-90ad-04ea040ba6ef.png)
 
 증명서 양식에 기제한 내용  
+
 `진단서` :
 진단번호,진단일,접수자,환자이름,담당의사,병명,소견  
+
+필요테이블  
+diagnosis, reservation, user, patient, receipt, dieases,   
+doctor정보(접수시 선택한의사`reservation 테이블의 user_doctor_no`와 user테이블 조인),  
+staff정보(접수자`reservation  테이블의 user_staff_no`와 user테이블 조인),
+
 `처방전` :
 처방번호,처방일,환자이름,담당의사,처방일,처방약품
 
