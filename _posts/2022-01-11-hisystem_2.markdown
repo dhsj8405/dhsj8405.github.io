@@ -79,7 +79,15 @@ staff정보(접수자`reservation  테이블의 user_staff_no`와 user테이블 
 
 ### 직원관리 페이지
 
- test 제증명
+ ![image](https://user-images.githubusercontent.com/60701130/149254481-a66f194d-d8bd-403e-96c4-ac3b7b1e17c9.png)
+
+직원 추가, 삭제,조회,수정이 가능한 페이지입니다.  
+
+![image](https://user-images.githubusercontent.com/60701130/149254945-ac29bc67-19f5-4023-809c-bb1a29061812.png)
+
+등록 시에 주소API를 이용하고 유효성 검사와 공백체크를 통해 정확한 정보 등록을 유도합니다.
+
+직원 리스트에서 보기 희망하는 직원을  클릭하면 상세보기와 수정이 가능합니다.
 
 ### 공지사항 페이지
 
