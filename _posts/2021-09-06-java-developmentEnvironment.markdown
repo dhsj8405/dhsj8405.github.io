@@ -50,14 +50,6 @@ project의 property - java build path - library에 등록
    = 본론 깃저장소 만들기 3에있음 )
 build tool이 Native intellij와 eclipsed의 호환을 가능케함
 
-#  깃 관련 용어
-push  
-로컬레포지토리에서 깃허브에 올리는것  
-pull  
-깃허브에서 가져오는것 ( 로컬 브랜치에 자동으로 병합)  
-fetch  
-깃허브에서 가져오는것 ( 로컬 브랜치에 자동 병합 x)  
-
  ## 2. Intellij Native project
   ### 형태
 /helloworld[Intellij Native Project]	네이티브 이클립스 디렉토리와 호환이 안됨  
