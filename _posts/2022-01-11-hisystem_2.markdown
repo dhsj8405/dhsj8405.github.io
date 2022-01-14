@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "hisystem 개발2"
-subtitle:   "test2"
+title:  "hisystem 개발"
+subtitle:   "hisystem 개발"
 categories: projects
 tags: hisystem
 ---
@@ -87,13 +87,20 @@ staff정보(접수자`reservation  테이블의 user_staff_no`와 user테이블 
 
 등록 시에 주소API를 이용하고 유효성 검사와 공백체크를 통해 정확한 정보 등록을 유도합니다.
 
+![image](https://user-images.githubusercontent.com/60701130/149465107-ac7cdcef-46d2-44c7-8cc1-60c457b855ec.png)
+
 직원 리스트에서 보기 희망하는 직원을  클릭하면 상세보기와 수정이 가능합니다.
 
 ### 공지사항 페이지
 
-test2 내용
+![image](https://user-images.githubusercontent.com/60701130/149467879-675554c8-4d30-4c1b-ab9a-87ef6711f1d0.png)
 
-### 공지사항 페이지
+모든 직원이 볼 수 있는 공지사항 페이지 입니다. 등록,수정,삭제는 관리자만 가능합니다.
 
-test2 내용
+### 근무관리 페이지(FullCalendar API)
+![image](https://user-images.githubusercontent.com/60701130/149489930-bc6f47d8-31dc-4538-a17b-c4464caa79b2.png)
+
+![image](https://user-images.githubusercontent.com/60701130/149490075-d5149f25-affa-48f1-ab8b-40aee022e3e1.png)
+
+간호사의 근무를 기록할 수 있는 페이지입니다.  사용 유저는 간호사이고 등록,수정,삭제는 수간호사만 가능합니다.
 
