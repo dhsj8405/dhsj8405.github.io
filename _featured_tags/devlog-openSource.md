@@ -3,6 +3,6 @@ layout: tag-blog
 title: openSource
 slug: opensource
 category: devlog
-menu: true
+menu: false
 order: 2
 ---
