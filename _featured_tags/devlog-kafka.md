@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: openSource
-slug: opensource
+title: kafka
+slug: kafka
 category: devlog
 menu: false
 order: 2
