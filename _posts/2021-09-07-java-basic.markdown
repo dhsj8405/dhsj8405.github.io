@@ -45,23 +45,32 @@ create repository 하고 내용 체크 - finish
 md파일 = mark down(html 태그들이 너무많아서 사용)
 설명용
 
-### git에서 md파일 염탐하는방법
+### git에서 md파일 작성 방법 확인하기
+
  md파일들어가서 raw눌리면 어떻게 만들었는지 나옴
 
 ### 이클립스에서 md 만드는법
 설명하고싶은 프로젝트파일 우클릭 - new - file - readme.md 적고 생성
 markdown source 에서 적기
 
-### 임시로 보는 법
-이클립스에서 preview 누르기
+### 이클립스에서 md 파일 미리보기  
+md 파일 밑에 preview 누르기
 
 ### readme로 자바 소스 적을 때
-공백
+
+`형식`
+
+&#96;&#96;&#96;java  
+
+자바 문법
+
+&#96;&#96;&#96;
+
+`결과`
 ```java
 public class HelloWorld{
 }
 ```
-공백 
 
 ## 협업과정
 팀원들간 맡은 서브프로젝트한것들 깃으로  커밋하고 jenkins소프트웨어에 git url 주고 세팅해주면 자동으로 빌드해줌
@@ -76,7 +85,7 @@ javastudy 우클릭 team - pull
 
 ### 참고서적
 * UML 실전에서는 이것만 쓴다 
-링크 http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788991268937
+링크 http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9788991268937  
 객체지향 설계원칙을 가르쳐줌 
 
 ### uml 주의사항 
