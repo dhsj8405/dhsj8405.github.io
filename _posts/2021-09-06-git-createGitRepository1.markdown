@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '깃 로컬 레포지토리 생성'
-subtitle: '깃 로컬 레포지토리 생성'
+title: '깃 로컬 레포지토리 생성1'
+subtitle: '깃 로컬 레포지토리 생성1'
 categories: devlog
 tags: git
 comments: true
