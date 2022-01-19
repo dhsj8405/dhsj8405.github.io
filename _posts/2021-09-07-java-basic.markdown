@@ -33,12 +33,14 @@ comments: true
 - 레포지토리 네임은 프로젝트 
 네임이랑 같게하는 게 팁
 
+```
+* 이부분 잘 생각안남 
 레포지토리 주소 복사  
 eclips)
 프로젝트 - team - shareproject (= cli에서 git init과 동일한 기능)
 use or create repository in parent folder of project 체크
 create repository 하고 내용 체크 - finish
-
+```
 ## md 파일 사용이유
 md파일 = mark down(html 태그들이 너무많아서 사용)
 설명용
