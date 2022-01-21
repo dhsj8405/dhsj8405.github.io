@@ -40,7 +40,7 @@ s2 = "world"
 s3 = s1 + s2 된다.  
 
 ## final 쓰인 곳 별 특징
-`변수` 정의가 끝났다 = 값 대입 더 이상 못함 (다른언어의 상수와 비슷함)  
+`변수` 정의 다시 못함 = 값 대입 더 이상 못함 (다른언어의 상수와 비슷함)  
 `method` 는 재정의 불가  
 `class` 는 상속할 수 없다.  
 ex) public static final int countOfGoods = 0;
@@ -52,6 +52,7 @@ java -cp chapter03.goodsApp
 ## class 특이 용도
 전역함수에 접근하기위한 네임스페이스로 사용되기도함
 classname.main()
+- 네임 스페이스 : 이름을 구분 할 수 있게 해주는 공간을 의미
 
 ## 객체 초기값 세팅
  null 값 대입(변수는 int a = 0;)
@@ -64,8 +65,8 @@ referece value
 address
 
 ## swap
-call by reference 객체로 넘겨야 swap 함수 구현가능
-컴파일러는 파라미터 변수가 우선이어서 오른쪽 변수에 대입
+call by reference 객체로 넘겨야 swap 함수 구현가능  
+컴파일러는 파라미터 변수가 우선이어서 오른쪽 변수에 대입  
 ```java
 public class Value {
 	private int val;
