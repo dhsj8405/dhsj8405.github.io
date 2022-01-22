@@ -39,15 +39,15 @@ s1 = "hello"
 s2 = "world"  
 s3 = s1 + s2 된다.  
 
-## final 쓰인 곳 별 특징
-`변수` 정의 다시 못함 = 값 대입 더 이상 못함 (다른언어의 상수와 비슷함)  
-`method` 는 재정의 불가  
-`class` 는 상속할 수 없다.  
+## final 특징
+final `변수` : 정의 다시 못함 = 값 대입 더 이상 못함 (다른언어의 상수와 비슷함)  
+final `method` : 재정의 불가  
+final `class` : 상속할 수 없다.  
 ex) public static final int countOfGoods = 0;
 파이널 변수는 대문자로 적어주는 게 좋음(일반 변수는 소문자)
 
 ## 자바 실행 cli명령어 
-java -cp chapter03.goodsApp 
+java -cp 패키지명.클래스명 
 
 ## class 특이 용도
 전역함수에 접근하기위한 네임스페이스로 사용되기도함
