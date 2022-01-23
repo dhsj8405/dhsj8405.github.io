@@ -72,7 +72,7 @@ public class Value {
 	private int val;
 	
 public Value( int val) {
-		this.val = val; // 인스턴스 변수  = 파라미터
+		this.val = val; // this.val(인스턴스 변수)  = val(파라미터)
 	}
 }
 ```
@@ -81,7 +81,7 @@ public Value( int val) {
 ```java
 public class SwapTest03 {
 	public static void main(String[] args) {
-		Value a = new Value(10); // 레퍼런스값 1000이 a에 들어감 레퍼런스 1000이 heap영역의 val = 10 을 가리킴
+		Value a = new Value(10); // 레퍼런스값 ex)1000 이 a에 들어감 레퍼런스 1000이 heap영역의 val = 10 을 가리킴
 		Value b = new Value(20);
 		System.out.println(a.val + ":" + b.val);
 		/* swap하기*/
