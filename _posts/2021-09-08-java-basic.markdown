@@ -81,7 +81,7 @@ public Value( int val) {
 ```java
 public class SwapTest03 {
 	public static void main(String[] args) {
-		Value a = new Value(10); // 레퍼런스값 ex)1000 이 a에 들어감 레퍼런스 1000이 heap영역의 val = 10 을 가리킴
+		Value a = new Value(10); // [ex) 레퍼런스값 1000] 이 a에 들어감 레퍼런스 1000이 heap영역의 val = 10 을 가리킴
 		Value b = new Value(20);
 		System.out.println(a.val + ":" + b.val);
 		/* swap하기*/
@@ -95,6 +95,30 @@ public class SwapTest03 {
 	}
 }
 ```
+
+
+
+## 메모리 영역
+
+### 스레드
+하나의 프로세서에서 각 독립적인 일의 단위  
+= 각 작업을 스레드화해서 병렬적으로 작업을 처리(멀티스레딩)할 수 있어야함
+`특징` code,data,heap영역 공유
+
+### 프로세스
+실행중인 프로그램  
+`특징` 완벽히 독립적: 메모리 영역(code,data,heap,stack)을 다른 프로세스와 공유 하지 않음
+
+
+### stack 
+지역 변수(메소드 내에서 선언된 변수들),  
+매개변수(메소드 파라미터)가 저장된다.
+
+`특징` 선언된 블록 안에서만 유효
+
+### heap
+new 키워드를 통해 생성되는 객체,  
+각종 스트링들이 저장된다.
 
 
 
