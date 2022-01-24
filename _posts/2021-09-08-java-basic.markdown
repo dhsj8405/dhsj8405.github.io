@@ -106,7 +106,7 @@ public class SwapTest03 {
 
 `특징` code,data,heap영역 공유  
 
-<span style="color:red">stack을 독립적으로 할당하는 이유</span>  
+<span style="color:red">stack을 독립적으로 할당하는 이유(특징에서 stack 공유 안하는 이유)</span>  
 : 실행 흐름을 추가하기위해(멀티스레딩을 위함)
 
 스택 메모리 공간이 독립적이라면, 독립적인 함수 호출이 가능하다  
