@@ -136,7 +136,8 @@ public class SwapTest03 {
 new 키워드를 통해 생성되는 객체,  
 배열,스트링들이 저장된다.
 
-| 스트링 생성방식에 따른 차이  
+
+#### 스트링 생성방식에 따른 차이  
 
 ![image](https://user-images.githubusercontent.com/60701130/150914424-330ad15d-60de-420b-ab42-7a82e52758f0.png)  
 ![image](https://user-images.githubusercontent.com/60701130/150914904-f9f6f8c6-f0f1-451c-820c-50dce86b4f71.png)
@@ -146,10 +147,6 @@ new 키워드를 통해 생성되는 객체,
 |저장 장소|heap영역|heap(string pool)|
 |동장 방식|같은 문자열 존재해도 다른 주소 반환 |string pool에 "strByLiteral" 문자열을 해싱한 해싱 값(hashCode)가 있으면 해당 주소값 반환, 그렇지않으면 hashCode를 저장하고 새로운 주소값 반환|
 |동일한 문자열 비교시|.equals로 비교해야 true|==으로 비교해야 동일성, 즉 두 객체의 주소까지 같은지 알 수 있다. |  
-
-=> 마크다운 호환안됨 : 문법 카피용으로 남김
-![image](https://user-images.githubusercontent.com/60701130/150919607-40815283-e45f-4ce8-97cf-f45d7f2efe47.png)
-
 
 ![image](https://user-images.githubusercontent.com/60701130/150916649-3281be62-9a9c-4e6c-afa5-fbcd89d59219.png)
 
