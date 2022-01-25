@@ -209,7 +209,7 @@ void method(){
 클래스 변수 공유변수 사용하고 접근자 실습
 
 
-https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/GoodsApp.java
+[GoodsApp 클래스](https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/GoodsApp.java)
 ```java
 package chapter03;
 
@@ -240,7 +240,7 @@ public class GoodsApp {
 }
 ```
 
-https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/Goods.java
+[Goods 클래스](https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/Goods.java)
 ```java
 package chapter03;
 
@@ -345,9 +345,8 @@ static 변수, static 메소드만 접근가능
 예) max(x1,x2); , parseInt("10");
 입력파라미터만받아서 내부에서 작업 후 리턴
 
-클래스 메소드 실습
-https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/ArrayUtilTest.java
-https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/ArrayUtils.java
+[클래스 메소드 실습 1-1](https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/ArrayUtilTest.java)  
+[클래스 메소드 실습 1-2](https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/ArrayUtils.java)
 
 #### (6)생성자
 ```java
@@ -400,8 +399,8 @@ public  class Goods {
 문제
 ![](https://images.velog.io/images/dhwoo8405/post/a68ce90c-1cdd-4f98-8536-0b69ae886c9e/image.png)
 
-풀이
-https://github.com/dhsj8405/javastudy/tree/a6c970ca8ccec35ed1e98c12b70cbb53209949cd/practice03/src/main/java/tv
+풀이  
+[깃허브 : tv패키지(WatchTV,TV 클래스)](https://github.com/dhsj8405/javastudy/tree/a6c970ca8ccec35ed1e98c12b70cbb53209949cd/practice03/src/main/java/tv)
 
 
 ```java
