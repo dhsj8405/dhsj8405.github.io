@@ -399,5 +399,101 @@ public  class Goods {
 클래스와 다형성 실습
 문제
 ![](https://images.velog.io/images/dhwoo8405/post/a68ce90c-1cdd-4f98-8536-0b69ae886c9e/image.png)
+
 풀이
 https://github.com/dhsj8405/javastudy/tree/a6c970ca8ccec35ed1e98c12b70cbb53209949cd/practice03/src/main/java/tv
+
+
+```java
+package tv;
+
+public class WatchTV {
+
+	public static void main(String[] args) {
+		TV tv = new TV( 7, 20, false);  	
+	         
+	         tv.status();	
+	         
+	         tv.power( true );
+	         tv.volume( 120 );
+	         tv.status();		          
+	         
+	         tv.volume( false );
+	         tv.status();
+	         
+	         tv.channel( 0 );
+	         tv.status();		          
+	         
+	         tv.channel( true );
+	         tv.channel( true );
+	         tv.channel( true );
+	         tv.status();
+
+	         tv.power( false );
+	         tv.status();      		          
+
+	}
+
+}
+```
+
+``` java
+package tv;
+
+public class TV {
+	private int channel; 	// 채널은 1~255  255넘어가면 1로 넘어가야함
+	private int volume;		// 0~100
+	private boolean power;	//꺼져있으면 작동하지않게
+	public TV(int channel, int volume, boolean power){
+		this.channel = channel;
+		this.volume = volume;
+		this.power = power;
+	}
+	public void status() {
+		System.out.println( "TV [channel=" + this.channel + ", volume=" + this.volume + ", power=" + this.power + "]");
+	}
+	public int getChannel() {
+		return channel;
+	}
+	public int getVolume() {
+		return volume;
+	}
+	public boolean isPower() {
+		return power;
+	}
+	public void power(boolean on) {
+		this.power = on;
+	}
+
+	public void channel(int channel) {
+		if(!this.power) {
+			return;
+		}else {
+			if(channel > 255) {
+				this.channel = 0;
+			}else if( channel < 1) {
+				this.channel = 255;
+			}
+		}
+		this.channel = channel;
+	}
+	public void channel(boolean up) {
+		channel(channel + (up ? 1 : -1));
+		}
+	public void volume(int volume) {
+		if(!this.power) {
+			return;
+		}else {
+			this.volume = volume;
+			if(this.volume > 100) {
+				this.volume = 100;
+			}else if(this.volume < 0) {
+				this.volume = 0;
+			}
+		}
+	}
+	public void volume(boolean up) {
+		volume(volume + (up ? 1 : -1));
+	}
+}
+```
