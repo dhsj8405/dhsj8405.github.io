@@ -137,7 +137,7 @@ new 키워드를 통해 생성되는 객체,
 배열,스트링들이 저장된다.
 
 
-| 스트링 생성방식에 따른 차이  
+#### 스트링 생성방식에 따른 차이  
 ![image](https://user-images.githubusercontent.com/60701130/150914424-330ad15d-60de-420b-ab42-7a82e52758f0.png)  
 ![image](https://user-images.githubusercontent.com/60701130/150914904-f9f6f8c6-f0f1-451c-820c-50dce86b4f71.png)
 
@@ -322,20 +322,21 @@ public class Goods2 {
 대/소문자,숫자,_,$ 조합하여 가능 ( 숫자로 시작 불가)
 
 #### (3) getter, setter 메소드
-필드는 private로 하여 객체 내부의 정보를 보호하고(정보은닉) 필드에 대한 Setter와
-Getter를 두어 객체의 값을 변경하고 참조하는 것이 좋다.
+필드는 private로 하여 객체 내부의 정보를 보호하고(정보은닉)  
+필드에 대한 Setter와 Getter를 두어 객체의 값을 변경하고 참조하는 것이 좋다.
 
 #### (4) 인스턴스 메소드
 인스턴스 변수는, 클래스변수 접근가능
 인스턴스 메소드에선 인스턴스 메소드도 불러오기가능 (아무거나 다됨)
 
 #### (5)클래스(static) 메소드
-static 변수, static 메소드만 접근가능
-인스턴스 변수 접근 불가
-인스턴스 메소드 접근 불가
- 
-|  <span style = "color:red">인스턴스 메소드는 Static(변수,메소드) 접근도 되고,  
-|클래스 메소드는 Static(변수,메소드)만 접근된다.</span>
+static 변수, static 메소드만 접근가능  
+인스턴스 변수 접근 불가  
+인스턴스 메소드 접근 불가  
+  
+<span style = "color:red">인스턴스 메소드는 Static(변수,메소드) 접근도 되고,  
+클래스 메소드는 Static(변수,메소드)만 접근된다.</span> 
+
 
 사용 목적 : 순수함수 만들때 사용
 - 순수함수(유틸함수)
@@ -354,7 +355,6 @@ public  class Goods {
      public Goods() {	//생성자 : 리턴값이 없다, 하지만 void를 쓰지 않는다.
           // 초기화 코드     
      }
-
      public Goods( String name, int price ) {
 
            // 초기화 코드
@@ -365,8 +365,8 @@ public  class Goods {
 - 오버로딩 된 생성자  중복 줄이는 방법
 ```java
 	public Song(String title, String artist) {
-		//this.title = title;
-		//this.artist = artist;
+		// this.title = title;
+		// this.artist = artist;
 		// some code..
 		this(title,artist,null,null,0,0);//생성자 호출하는 방법
 	}
