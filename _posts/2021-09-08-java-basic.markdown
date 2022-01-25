@@ -137,8 +137,7 @@ new 키워드를 통해 생성되는 객체,
 배열,스트링들이 저장된다.
 
 
-#### 스트링 생성방식에 따른 차이  
-
+| 스트링 생성방식에 따른 차이  
 ![image](https://user-images.githubusercontent.com/60701130/150914424-330ad15d-60de-420b-ab42-7a82e52758f0.png)  
 ![image](https://user-images.githubusercontent.com/60701130/150914904-f9f6f8c6-f0f1-451c-820c-50dce86b4f71.png)
 
@@ -335,8 +334,8 @@ static 변수, static 메소드만 접근가능
 인스턴스 변수 접근 불가
 인스턴스 메소드 접근 불가
  
-| <span style = "color:red">인스턴스 메소드는 Static(변수,메소드) 접근도 되고,  
-클래스 메소드는 Static(변수,메소드)만 접근된다.</span>
+|  <span style = "color:red">인스턴스 메소드는 Static(변수,메소드) 접근도 되고,  
+|클래스 메소드는 Static(변수,메소드)만 접근된다.</span>
 
 사용 목적 : 순수함수 만들때 사용
 - 순수함수(유틸함수)
