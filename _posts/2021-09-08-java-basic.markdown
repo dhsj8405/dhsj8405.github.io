@@ -208,8 +208,112 @@ void method(){
 }
 ```
 클래스 변수 공유변수 사용하고 접근자 실습
-https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/Goods.java
+
+
 https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/GoodsApp.java
+```java
+package chapter03;
+
+public class GoodsApp {
+
+	public static void main(String[] args) {
+		Goods goods = new Goods();
+		goods.setName("Nikon");			
+		goods.setPrice(2000);
+		goods.setCountStock(10);
+		goods.setCountSold(20);
+		goods.showInfo();
+
+	
+		goods.setPrice(-1);
+		int discountPrice = goods.calcDiscountPrice(50);
+		System.out.println(discountPrice);
+		
+		System.out.println(Goods.countOfGoods);
+		Goods goods2 = new Goods();
+		Goods goods3 = new Goods();
+		System.out.println(Goods.countOfGoods);
+
+		Goods2 goods4 = new Goods2(); // 클래스 변수 접근 확인용
+
+	}
+
+}
+```
+
+https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/Goods.java
+```java
+package chapter03;
+
+public class Goods {
+	public static int countOfGoods = 0 ;
+	//클래스 변수는 public 을 붙이면 같은 프로그램 내에서 어디서든 접근할 수 있는 전역 변수가 됩니다.
+	private static int totalCount = 0;
+
+	private String name;
+	private int price;
+	private int countStock;
+	private int countSold;
+	
+	public Goods() {
+		countOfGoods++;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		if(price<0) {
+			return;
+		}
+		this.price = price;
+	}
+	public int getCountStock() {
+		return countStock;
+	}
+	public void setCountStock(int countStock) {
+		this.countStock = countStock;
+	}
+	public int getCountSold() {
+		return countSold;
+	}
+	public void setCountSold(int countSold) {
+		this.countSold = countSold;
+	}
+	public void showInfo() {
+		System.out.println(
+				"name:" + name +
+				" , price:" + price+
+				", countStock:" + countStock+ 
+				", countSold:" + countSold);
+		
+	}
+	public int calcDiscountPrice(int percentage) {
+		
+		return price * percentage / 100;
+	}
+
+	
+}
+```
+
+```java
+package chapter03;
+
+public class Goods2 {
+	public Goods2() {
+		System.out.println(Goods.countOfGoods); // 전역변수 countOfGoods 값인 3이 출력됨	
+		System.out.println(Goods.totalCount);	// 에러 : private 변수는 같은 클래스 내에서만 유효
+	}
+}
+```
+
+
 ### d) 메소드
 #### (1) 메소드 반환
  1개 밖에 못함
@@ -230,9 +334,9 @@ Getter를 두어 객체의 값을 변경하고 참조하는 것이 좋다.
 static 변수, static 메소드만 접근가능
 인스턴스 변수 접근 불가
 인스턴스 메소드 접근 불가
-
-=> 인스턴스 메소드는 Static(변수,메소드) 접근도 되고 
-   클래스 메소드는 Static(변수,메소드)만 접근된다.
+ 
+| <span style = "color:red">인스턴스 메소드는 Static(변수,메소드) 접근도 되고,  
+클래스 메소드는 Static(변수,메소드)만 접근된다.</span>
 
 사용 목적 : 순수함수 만들때 사용
 - 순수함수(유틸함수)
