@@ -8,7 +8,9 @@ tags: java
 comments: true
 
 ---
+
 # 상속
+
 부모 클래스
 ```java
 public class Person {
@@ -66,5 +68,6 @@ public class StudentTest {
 	}
 }
 ```
+
 
 # 상속과 다형성 ( 메소드 오버라이딩)
