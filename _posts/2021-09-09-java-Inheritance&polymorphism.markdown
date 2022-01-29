@@ -12,8 +12,16 @@ comments: true
 
 # 상속과 다형성
 
-## 상속(+upcasting,downcasting)
+## 상속(+객체의 형번환 : upcasting,downcasting)
 
+### 상속 이유 
+재사용성 , 중복 제거, 계층적 분류 및 관리
+
+### 특징
+다중 상속 불가 (부모 여러명x)
+
+
+### 상속예시
 부모 클래스
 ```java
 public class Person {
@@ -37,12 +45,15 @@ public class Student extends Person {
 	private String major;
 
 	public Student() {
+		super(); // 없어도 암시적으로 호출됨
+		System.out.println("Student() called");
+		//super(); : 오류
+		
 		// 자식의 모든 생성자에서 
 		// 부모의 특정 생성자를 명시(explicity)하지 않으면
 		// 암시적(implicity)으로 부모의 기본 생성자가 
 		// 자식 생성자 코드 앞에 호출된다.
-		//super(); //부모클래스 생성자를 먼저 부르기때문에 super();을 밑에 프린트문의 밑에 적으면 안됨
-		System.out.println("Student() called");
+
 	}
 	public int getGrade() {
 		return grade;
@@ -58,19 +69,23 @@ public class Student extends Person {
 	}	
 }
 ```
-메인함수
+메인함수 
 ```java
 public class StudentTest {
 	public static void main(String[] args) {
 		Student s1 = new Student();
 		s1.setGrade(1);
 		Person p1 = s1; 	//upcasting(암시적,Implicity)
+		
 		p1.setName("둘리");		
 		Student s2 = (Student)p1;	//downcasting(명시적, explicity)
+		// 다운캐스팅은 명시적으로 변환해야함
 		s2.setMajor("cs");	
 	}
 }
 ```
+
+
 
 ## 다형성
 
