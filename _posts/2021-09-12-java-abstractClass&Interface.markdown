@@ -31,7 +31,6 @@ public abstract class 클래스명{
 
   //메서드
 
-
 }
 ```
 
