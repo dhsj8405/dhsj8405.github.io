@@ -1,0 +1,1 @@
+$(document).ready(function(){ var currentPosition = parseInt($(".right-side").css("top")); $(window).scroll(function() { var position = $(window).scrollTop(); $(".right-side").stop().animate({"top":position+currentPosition+"px"},1000); }); });
