@@ -147,6 +147,3 @@ public class Triangle extends Shape {
 
 ## Ch.3-4-6 일반클래스 vs 추상 클래스 vs 인터페이스
 ![](https://images.velog.io/images/dhwoo8405/post/cffed545-fde3-4fe4-ba4d-58eaa1a28fc5/image.png)
-
-
-/
