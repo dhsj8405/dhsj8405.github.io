@@ -1,4 +1,3 @@
----
 
 layout: post
 title: '객체지향 추상 클래스와 인터페이스'
@@ -7,7 +6,7 @@ categories: devlog
 tags: java
 comments: true
 
----
+
 
 # Ch.3-4 추상 클래스와 인터페이스
 
