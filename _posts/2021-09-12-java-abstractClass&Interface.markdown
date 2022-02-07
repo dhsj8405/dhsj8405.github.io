@@ -24,7 +24,7 @@ comments: true
 ``` java
 public abstract class 클래스명{
 
-  //필드
+  //필드   
 
   //생성자
 
