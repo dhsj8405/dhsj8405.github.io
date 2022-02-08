@@ -17,7 +17,7 @@ comments: true
 
 ## 증가하지않은 이유  
 로컬 깃 유저 정보가 repository에 등록되어 있지 않았다.
-
+ 
 ex)  
 유저이름 : abcd  
 유저이메일 : abcd@abcd.com
