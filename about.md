@@ -16,6 +16,20 @@ Spring boot와 React를 주로 사용합니다.
 
 반갑습니다.
 
+## Technical Skills
+
+`Frontend` 
+React
+
+`Backend`
+Spring,
+Spring Boot,
+Node.js
+
+`Database`
+ MySQL
+
+
 ## 약력
 
 - 더존비즈온 채용 연계형 교육 수료

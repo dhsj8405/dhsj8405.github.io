@@ -1,13 +1,12 @@
 ---
-
 layout: post
 title: '객체지향 추상 클래스와 인터페이스'
 subtitle: '객체지향 추상 클래스와 인터페이스'
 categories: devlog
 tags: java
 comments: true
-
 ---
+
 
 # Ch.3-4 추상 클래스와 인터페이스
 
@@ -25,7 +24,7 @@ comments: true
 ``` java
 public abstract class 클래스명{
 
-  //필드
+  //필드   
 
   //생성자
 
