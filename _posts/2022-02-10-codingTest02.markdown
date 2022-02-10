@@ -1,13 +1,13 @@
 ---
 layout: post
-title: '[Java]숫자 문자열과 영단어'
-subtitle: '[Java]숫자 문자열과 영단어'
+title: '[CodingTest]숫자 문자열과 영단어'
+subtitle: '[CodingTest]숫자 문자열과 영단어'
 categories: codingTest
 tags: level1
 comments: true
 ---
 
-
+[Java]
 # 숫자 문자열과 영단어 
 ## 프로그래머스(2021 카카오 채용연계형 인턴십) : 숫자 문자열과 영단어 
 ### `문제설명`

@@ -1,12 +1,13 @@
 ---
 layout: post
-title: '[Java]신규아이디추천(정규표현식)'
-subtitle: '[Java]신규아이디추천(정규표현식)'
+title: '[CodingTest]신규아이디추천(정규표현식)'
+subtitle: '[CodingTest]신규아이디추천(정규표현식)'
 categories: codingTest
 tags: level1
 comments: true
 ---
 
+[Java]
 
 # 정규표현식 
 ## 프로그래머스(2021 KAKAO BLIND RECRUITMENT) : 신규아이디추천
