@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '신규아이디추천(정규표현식)'
-subtitle: '신규아이디추천(정규표현식)'
+title: '[Java]신규아이디추천(정규표현식)'
+subtitle: '[Java]신규아이디추천(정규표현식)'
 categories: codingTest
 tags: level1
 comments: true
@@ -48,9 +48,9 @@ class Solution {
 }
 ```
 
-특수문자는 [] 안에 쓰면 문자로 인식
-[] 안에 ^ 있으면 not
-[] 밖에 ^ 있으면 ~로시작하는
+특수문자는 [] 안에 쓰면 문자로 인식  
+[] 안에 ^ 있으면 not  
+[] 밖에 ^ 있으면 ~로시작하는  
 
 
 # 채점시 통과 됐지만 5단계에서 == 비교가 잘못됨 
