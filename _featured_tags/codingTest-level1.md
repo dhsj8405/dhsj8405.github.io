@@ -1,14 +1,15 @@
 ---
 layout: tag-blog
-title: Java
-slug: java
+title: Level1
+slug: level1
 category: codingTest
 menu: false
 order: 2
 header-img: ""
 ---
 
-# 정규표현식 ( 프로그래머스 : 신규아이디추천)
+# 정규표현식 
+## 프로그래머스(2021 KAKAO BLIND RECRUITMENT) : 신규아이디추천
 
 조건
 ```
@@ -51,8 +52,9 @@ class Solution {
 [] 안에 ^ 있으면 not
 [] 밖에 ^ 있으면 ~로시작하는
 
-* 채점시 통과 됐지만 5단계에서 == 비교가 잘못됨 
-처음에 통과 안되길래 ""인 문자열은 trim 적용 안되나 싶어서 길이 0 추가해서 통과 됐는데
+
+# 채점시 통과 됐지만 5단계에서 == 비교가 잘못됨 
+처음에 통과 안되길래 ""인 문자열은 trim 적용 안되나 싶어서 길이 0인 조건 추가해서 통과 됐는데
 생각해보니 
 ```
 ==은 주소값 비교
@@ -61,5 +63,12 @@ class Solution {
 ```
 equals()가 대상의 내용 자체를 비교
 ```
+임
 
+## 보완해야할 부분
+```java
+    //5단계  
+    if(answer.trim().equals("")) answer = "a";
+```
+ 
 
