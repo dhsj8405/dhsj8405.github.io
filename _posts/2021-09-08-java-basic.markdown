@@ -105,7 +105,8 @@ public class SwapTest03 {
 ### 스레드
 하나의 프로세서에서 각 독립적인 일의 단위  
 = 각 작업을 스레드화해서 병렬적으로 작업을 처리(멀티스레딩)할 수 있어야함  
-
+스레드 동기화하는방법   
+자원을 동시에 건드릴 수 있기 때문에 syncronized동기화 해야함
 `특징` code,data,heap영역 공유  
 
 <span style="color:red">stack을 독립적으로 할당하는 이유(스레드 특징에서 stack 공유 안하는 이유)</span>  
