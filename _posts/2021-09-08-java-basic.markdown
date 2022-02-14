@@ -131,12 +131,12 @@ public class SwapTest03 {
 지역 변수(메소드 내에서 선언된 변수들),  
 매개변수(메소드 파라미터)가 저장된다.
 메소드가 호출될 때 메모리에 할당되고 종료되면 메모리가 해제됨  
-`특징` 선언된 블록 안에서만 유효
+scope : local (선언된 블록 안에서만 유효)
 
 ### heap
 new 키워드를 통해 생성되는 객체,  
 배열,스트링들이 저장된다.
-
+scope : global
 
 #### 스트링 생성방식에 따른 차이  
 ![image](https://user-images.githubusercontent.com/60701130/150914424-330ad15d-60de-420b-ab42-7a82e52758f0.png)  
