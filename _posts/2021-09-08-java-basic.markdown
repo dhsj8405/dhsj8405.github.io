@@ -340,10 +340,10 @@ static 변수, static 메소드만 접근가능
 
 
 사용 목적 : 순수함수 만들때 사용
-- 순수함수(유틸함수)
+- 순수함수(유틸함수)  
 바깥의 데이터를 사용하지않음
-예) y = f(x) :  순수함수 아님
-예) max(x1,x2); , parseInt("10");
+예) y = f(x) :  순수함수 아님  
+예) max(x1,x2); , parseInt("10");  
 입력파라미터만받아서 내부에서 작업 후 리턴
 
 [클래스 메소드 실습 1-1](https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/ArrayUtilTest.java)  
