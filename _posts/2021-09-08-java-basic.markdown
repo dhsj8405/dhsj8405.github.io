@@ -145,7 +145,7 @@ scope : global
 |생성방식|new|리터럴|
 |:---|:---|:---|
 |저장 장소|heap영역|heap(string pool)|
-|동장 방식|같은 문자열 존재해도 다른 주소 반환 |string pool에 "strByLiteral" 문자열을 해싱한 해싱 값(hashCode)가 있으면 해당 주소값 반환, 그렇지않으면 hashCode를 저장하고 새로운 주소값 반환|
+|동장 방식|string pool에 "strByLiteral" 문자열이 있으면 해당 주소값 반환, 그렇지않으면 저장하고 새로운 주소값 반환|
 |동일한 문자열 비교시|.equals로 비교해야 true|==으로 비교해야 동일성, 즉 두 객체의 주소까지 같은지 알 수 있다. |  
 
 ![image](https://user-images.githubusercontent.com/60701130/150916649-3281be62-9a9c-4e6c-afa5-fbcd89d59219.png)
