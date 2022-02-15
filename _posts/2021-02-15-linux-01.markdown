@@ -1,0 +1,43 @@
+---
+
+layout: post
+title: 'Linux 서버시간 동기화'
+subtitle: 'Linux 서버시간 동기화'
+categories: devlog
+tags: linux
+comments: true
+
+---
+
+
+# 본인 서버시간, 타임 서버 시간(time.bora.net) 확인하기
+
+```linux
+[root@localhost]# date							// 본인 서버시간
+[root@localhost]# rdate -p time.bora.net		// 타임 서버시간
+```
+
+# 서버 시간 동기화
+
+
+1. 실행 스크립트 만들기 (주기적으로 동기화 하기위해 cron 작업하기위함)
+	-	cron : 시스템 운영에 필요한 일상적이고 주기적인 작업을 지정된 시간에 반복적으로 수행함
+
+	/etc/cron.hourly 밑에 time_sync.sh 생성
+
+	실행스크립트 (time_sync.sh )
+	```
+	#!/bin/bash  
+	rdate -s time.bora.net && date && clock -r && clock -w > /dev/null 2>&1
+	```
+
+2. 실행하기위해 권한 700 준다.  
+	
+	(1) 권한 확인하기
+	```linux
+	[root@localhost]# ls -l time_sync.sh
+	```
+	(2) 권한 700 주기
+	```linux
+	[root@localhost]# chmod 700 time_sync.sh
+	```
