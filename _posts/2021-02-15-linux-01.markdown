@@ -24,8 +24,16 @@ comments: true
 	-	cron : 시스템 운영에 필요한 일상적이고 주기적인 작업을 지정된 시간에 반복적으로 수행함
 
 	/etc/cron.hourly 밑에 time_sync.sh 생성
+	```linux
+	[root@localhost cron.hourly]# vi time_sync.sh
+	```
+	`vi 명령어`  
+	i // insert 모드  
+	esc // 명령어 모드  
+	:q! //  저장없이 나가기  
+	:wq // 저장하고나가기  
 
-	실행스크립트 (time_sync.sh )
+	<span style = "font-weight : bold">실행스크립트 (time_sync.sh )</span>
 	```
 	#!/bin/bash  
 	rdate -s time.bora.net && date && clock -r && clock -w > /dev/null 2>&1
@@ -35,7 +43,7 @@ comments: true
 	
 	(1) 권한 확인하기
 	```linux
-	[root@localhost]# ls -l time_sync.sh
+	[root@localhost cron.hourly]# ls -l time_sync.sh
 	```
 	(2) 권한 700 주기
 	```linux
