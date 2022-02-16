@@ -69,11 +69,6 @@ ls -l
 링크파일 지우는것  
 rm -fr jdk1.8.0_291  
 
-
-
-
-
-
 ## 3. 환경 설정하기
 
 ```[root@localhost ~]# vi /etc/profile```
