@@ -1,8 +1,8 @@
 ---
 
 layout: post
-title: 'Linux java 실행/개발 환경 설정'
-subtitle: 'Linux java 실행/개발 환경 설정'
+title: 'Linux java 설치/ 환경 설정'
+subtitle: 'Linux java 설치/환경 설정'
 categories: devlog
 tags: linux
 comments: true
