@@ -49,3 +49,9 @@ comments: true
 	```linux
 	[root@localhost]# chmod 700 time_sync.sh
 	```
+
+
+
+3. 동기화 확인
+	적용하고 시간 동기화 확인 안됐는데 다음날 확인해보니 돼있음  
+	바로 적용은 안되고 주기에 맞춰 그 다음부터 적용되나봄
