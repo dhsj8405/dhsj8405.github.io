@@ -335,7 +335,6 @@ hostname :
 	![image](https://user-images.githubusercontent.com/60701130/154268606-4646e1fb-a3e8-4711-8298-1175304068e8.png)
 
 
-
 	호스트 명 변경  
 	```vi /etc/hostname ```
 	```
