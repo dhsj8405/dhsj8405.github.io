@@ -38,6 +38,13 @@ comments: true
 	#!/bin/bash  
 	rdate -s time.bora.net && date && clock -r && clock -w > /dev/null 2>&1
 	```
+	- 2>&1 는 표준에러를 표준출력으로 redirection 하라는 의미  
+	0 : 표준입력  
+	1 : 표준출력  
+	2 : 표준에러  
+/dev/null : (/dev/null 은 그냥 없는 공간)로 옮겨라 = 버리다  
+2(표준에러) 1(표준출력)으로 redirection 합니다.  
+<span style = "color : red">결국 결과는 표준출력이 되기 때문에 /dev/null로 버려지고, 화면에 결과가 뿌려지지 않게 됨</span>
 
 2. 실행하기위해 권한 700 준다.  
 	
