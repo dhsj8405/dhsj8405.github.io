@@ -4,5 +4,5 @@ title: Jekyll
 slug: jekyll
 category: devlog
 menu: false
-order: 3
+order: 100
 ---
