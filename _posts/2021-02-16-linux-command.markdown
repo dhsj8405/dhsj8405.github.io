@@ -4,7 +4,7 @@ layout: post
 title: '[centOS]Linux 명령어 정리(Linux Command) 및 관리'
 subtitle: '[centOS]Linux 명령어 정리(Linux Command) 및 관리'
 categories: devlog
-tags: server
+tags: ---CentOS
 comments: true
 
 ---

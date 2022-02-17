@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: ---CentOS
-slug: ---CentOS
+title: --- CentOS
+slug: --- centOS
 category: devlog
 menu: false
 order: 5

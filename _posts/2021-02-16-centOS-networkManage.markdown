@@ -4,7 +4,7 @@ layout: post
 title: '[centOS]Linux 네트워크 관리 및 설정(고정IP설정)'
 subtitle: '[centOS]Linux 네트워크 관리 및 설정(고정IP설정)'
 categories: devlog
-tags: server
+tags: ---CentOS
 comments: true
 
 ---

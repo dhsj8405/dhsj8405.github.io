@@ -4,7 +4,7 @@ layout: post
 title: '[centOS]Linux java 설치/ 환경 설정'
 subtitle: '[centOS]Linux java 설치/환경 설정'
 categories: devlog
-tags: server
+tags: ---CentOS
 comments: true
 
 ---
