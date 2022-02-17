@@ -1,8 +1,8 @@
 ---
 
 layout: post
-title: 'Linux 서버시간 동기화'
-subtitle: 'Linux 서버시간 동기화'
+title: '[centOS]Linux 서버시간 동기화'
+subtitle: '[centOS]Linux 서버시간 동기화'
 categories: devlog
 tags: server
 comments: true

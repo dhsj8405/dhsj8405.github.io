@@ -1,8 +1,8 @@
 ---
 
 layout: post
-title: 'Linux java 설치/ 환경 설정'
-subtitle: 'Linux java 설치/환경 설정'
+title: '[centOS]Linux java 설치/ 환경 설정'
+subtitle: '[centOS]Linux java 설치/환경 설정'
 categories: devlog
 tags: server
 comments: true

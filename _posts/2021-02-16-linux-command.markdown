@@ -1,8 +1,8 @@
 ---
 
 layout: post
-title: 'Linux 명령어 정리(Linux Command) 및 관리'
-subtitle: 'Linux 명령어 정리(Linux Command) 및 관리'
+title: '[centOS]Linux 명령어 정리(Linux Command) 및 관리'
+subtitle: '[centOS]Linux 명령어 정리(Linux Command) 및 관리'
 categories: devlog
 tags: server
 comments: true

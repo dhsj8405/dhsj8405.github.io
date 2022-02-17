@@ -1,8 +1,8 @@
 ---
 
 layout: post
-title: 'Linux wget 사용시 증명서(certificate)에러'
-subtitle: 'Linux wget 사용시 증명서(certificate)에러'
+title: '[centOS]Linux wget 사용시 증명서(certificate)에러'
+subtitle: '[centOS]Linux wget 사용시 증명서(certificate)에러'
 categories: devlog
 tags: server
 comments: true
