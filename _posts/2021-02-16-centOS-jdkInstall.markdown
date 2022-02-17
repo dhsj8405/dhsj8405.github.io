@@ -4,7 +4,7 @@ layout: post
 title: 'Linux java 설치/ 환경 설정'
 subtitle: 'Linux java 설치/환경 설정'
 categories: devlog
-tags: linux
+tags: server
 comments: true
 
 ---

@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Linux
-slug: linux
+title: Server
+slug: server
 category: devlog
 menu: false
 order: 2
