@@ -4,7 +4,7 @@ layout: post
 title: '[centOS]Linux wget 사용시 증명서(certificate)에러'
 subtitle: '[centOS]Linux wget 사용시 증명서(certificate)에러'
 categories: devlog
-tags: ---CentOS
+tags: --- centOS
 comments: true
 
 ---
