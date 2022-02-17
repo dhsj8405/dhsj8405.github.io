@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Web
-slug: web
+title: deploy
+slug: deploy
 category: devlog
 menu: false
 order: 1
