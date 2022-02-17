@@ -4,5 +4,5 @@ title: kafka
 slug: kafka
 category: devlog
 menu: false
-order: 2
+order: 3
 ---

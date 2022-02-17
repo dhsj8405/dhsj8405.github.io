@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Server
-slug: server
+title: ---CentOS
+slug: ---CentOS
 category: devlog
 menu: false
 order: 5
