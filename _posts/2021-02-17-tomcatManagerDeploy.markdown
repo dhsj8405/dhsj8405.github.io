@@ -89,4 +89,3 @@ Tomcat installation directory에 C:\douzone\apache-tomcat-8.5.75 넣기
 
 - Windows와 동일하게 tomcat을 시작하면 자동으로 프로젝트 이름과 동일한 폴더가 생성되면서 war 파일로 묶여있던 패키지가 풀린다.
 
-
