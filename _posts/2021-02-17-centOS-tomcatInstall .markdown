@@ -15,7 +15,7 @@ comments: true
 0. 작업은 /root
 
 1. tomcat8 다운로드
-   # wget https://mirror.navercorp.com/apache/tomcat/tomcat-8/v8.5.65/bin/apache-tomcat-8.5.65.tar.gz
+   ```wget https://mirror.navercorp.com/apache/tomcat/tomcat-8/v8.5.65/bin/apache-tomcat-8.5.65.tar.gz```
 
    안되면 https://mirror.navercorp.com 들어가서 위 링크대로 tomcat까지들어가서 새로운 버전 tar.gz 윈도우에 받고 sftp로 ssh서버에 put하기
 
@@ -65,7 +65,7 @@ comments: true
    ![image](https://user-images.githubusercontent.com/60701130/154419819-5c36effa-cdae-4a0a-9077-beda0e15c50f.png)
 
 
-8. 중지 시키기
+8. 중지 시키기  
    ```/usr/local/douzone/tomcat/bin/catalina.sh stop```
 
 9. 서비스 등록 하기  
@@ -135,9 +135,9 @@ comments: true
 	```
 
 12. tomcat 재시작
-    ``` systemctl stop tomcat```
-    ``` ps -ef | grep tomcat```
-    ``` systemctl start tomcat```
+    ``` systemctl stop tomcat```    
+    ``` ps -ef | grep tomcat```    
+    ``` systemctl start tomcat```  
 
 13. 확인하기  
 	http://자기IPAddr/manager 
