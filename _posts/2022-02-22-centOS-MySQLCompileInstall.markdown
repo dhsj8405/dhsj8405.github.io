@@ -1,8 +1,8 @@
 ---
 
 layout: post
-title: '[centOS]Linux에 tomcat설치 및 설정'
-subtitle: '[centOS]Linux에 tomcat설치 및 설정'
+title: '[centOS]Linux에 MySQL 컴파일설치'
+subtitle: '[centOS]Linux에 MySQL 컴파일설치'
 categories: devlog
 tags: centOS
 comments: true
@@ -10,152 +10,82 @@ comments: true
 ---
 
 
-# tomcat 설치 및 설정
+# 컴파일 설치
 
-0. 작업은 /root
-
-1. tomcat8 다운로드
-   ```wget https://mirror.navercorp.com/apache/tomcat/tomcat-8/v8.5.65/bin/apache-tomcat-8.5.65.tar.gz```
-
-   안되면 https://mirror.navercorp.com 들어가서 위 링크대로 tomcat까지들어가서 새로운 버전 tar.gz 윈도우에 받고 sftp로 ssh서버에 put하기
-
-2. 압축 풀기  
-   ``` tar xvfz apache-tomcat-8.5.65.tar.gz```
-
-3. 설치  
-   ``` mv apache-tomcat-8.5.65 /usr/local/douzone/tomcat8.5```  
-   ``` ln -s /usr/local/douzone/tomcat8.5 /usr/local/douzone/tomcat```  
-
-4. 설정(/etc/profile, 생략)  
+1. 유저 생성(계정 생성)
 
 
-5. 포트 확인 및 변경  
-   ```vi /usr/local/douzone/tomcat/conf/server.xml```
+	Root는 모든 권한이 있기 때문에 Root 계정으로 MySQL을 실행하는 것은 보안상 좋지않음
 
 
-	강의에서 약속  
-	서버에서 실행 포트 : 8088 ,로컬에서 실행 포트 : 8080  
-	명령어 모드에서 단어(ex:8080) 검색하는방법  
-	/8080  
-	vi /usr/local/douzone/tomcat/conf/server.xml  
+	`groupadd mysql`  	// mysql 그룹 생성  
+	`useradd -M -g mysql mysql`  //mysql 그룹에 속하며 홈 디렉터리가 없는 mysql 계정을 생성  
+	`cat /etc/passwd`  		//유저 생성 여부 확인  
 
-	-----------Insert모드----------------
+	mysql 그룹을 생성한 뒤, mysql 그룹에 속하며 홈 디렉터리가 없는 mysql 계정을 생성합니다.
+
+	그리고 /etc/passwd 파일을 출력하여 유저가 생성되었는지 확인합니다.
+
+2. 의존성 설치  
+`yum install -y gcc`  
+`yum install -y gcc-c++`  
+`yum install -y gcc-c++`  
+`yum install -y gdbm-devel`  
+`yum install -y zlib*`  
+`yum install -y libxml*`  
+`yum install -y freetype*`  
+`yum install -y libpng*`  
+`yum install -y flex`  
+`yum install -y gmp`  
+`yum install -y ncurses-devel`  
+`yum install -y cmake.x86_64`  
+`yum install -y libaio `  
+
+3. 소스 다운로드  
+`wget https://downloads.mariadb.org/interstitial/mariadb-10.1.48/source/mariadb-10.1.48.tar.gz`  
+
+4. 압축 풀기  
+`tar xvfz mariadb-10.1.48.tar.gz`
+
+5. 폴더 이동
+`mv mariadb-10.1.48.tar.gz /usr/local/douzone`
+
+6. 링크 하기  
+`ln -s mariadb-10.1.48 mariadb`
+
+7. 빌드 환경 설정
+`cmake -DCMAKE_INSTALL_PREFIX=/usr/local/douzone/mariadb -DMYSQL_USER=mysql -DMYSQL_TCP_PORT=3307 -DMYSQL_DATADIR=/usr/local/douzone/mariadb/data -DMYSQL_UNIX_ADDR=/usr/local/douzone/mariadb/tmp/mariadb.sock -DINSTALL_SYSCONFDIR=/usr/local/douzone/mariadb/etc -DINSTALL_SYSCONF2DIR=/usr/local/douzone/mariadb/etc/my.cnf.d -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_EXTRA_CHARSETS=all -DWITH_ARIA_STORAGE_ENGINE=1 -DWITH_XTRADB_STORAGE_ENGINE=1 -DWITH_ARCHIVE_STORAGE_ENGINE=1 -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_PARTITION_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITH_FEDERATEDX_STORAGE_ENGINE=1 -DWITH_PERFSCHEMA_STORAGE_ENGINE=1 -DWITH_READLINE=1 -DWITH_SSL=bundled -DWITH_ZLIB=system`
+
+8. 빌드  (꽤 오래걸림)  
+`make`  
+
+9. 설치  
+`make install`  
+
+10. 인스톨 디렉토리 /mariadb 소유자 변경  
+`chown -R mysql:mysql /usr/local/douzone/mariadb`
+
+11. 설정파일 위치 변경  
+`cp -R /usr/local/douzone/mariadb/etc/my.cnf.d /etc`
+
+12. 기본(관리) 데이터베이스(mysql) 생성  
+`/usr/local/douzone/mariadb/scripts/mysql_install_db --user=mysql --basedir=/usr/local/douzone/mariadb --defaults-file=/usr/local/douzone/mariadb/etc/my.cnf --datadir=/usr/local/douzone/mariadb/data`
+
+13. 서버 구동   
+서비스 등록안하면 매번 입력해야함(실행시 아무것도 입력안되기도함 서비스등록하는거 추천)  
+`/usr/local/douzone/mariadb/bin/mysqld_safe &`
+
+14. root 패스워드 설정
+`/usr/local/douzone/mariadb/bin/mysqladmin -u root password`
+
+15. 데이터베이스 접속 테스트
+`/usr/local/douzone/mariadb/bin/mysql -u root -p`
+
+16. path 설정(/etc/profile)  
+`vi /etc/profile`  
+맨밑에 추가하기  
 	```
-	Connector port = "8088"로 변경
-	```
-
-
-6. 실행  
-	tomcat 실행전 상태
-	![image](https://user-images.githubusercontent.com/60701130/154419149-964ddb15-dbdb-4db4-9ccb-6037db4b72e6.png)
-	
-	tomcat 실행
-	```/usr/local/douzone/tomcat/bin/catalina.sh start```  
-	![image](https://user-images.githubusercontent.com/60701130/154419542-806e55c2-fd38-4160-bd5d-44c1fb4390b2.png)
-
-	``` ps -ef | grep tomcat```  
-	![image](https://user-images.githubusercontent.com/60701130/154419412-72333ba6-e34f-47c4-84ff-e436a5d9e418.png)
-
-	``` ps -ef | grep java```  
-	![image](https://user-images.githubusercontent.com/60701130/154419452-e2965ff6-8037-47ec-8ed6-be5312d445a1.png)
-
-
-7. 브라우저로 접근 하기  
-   http://자기IPADDR:8088  
-   ![image](https://user-images.githubusercontent.com/60701130/154419819-5c36effa-cdae-4a0a-9077-beda0e15c50f.png)
-
-
-8. 중지 시키기  
-   ```/usr/local/douzone/tomcat/bin/catalina.sh stop```
-
-9. 서비스 등록 하기  
-   파일 생성  
-   ```vi /usr/lib/systemd/system/tomcat.service ```  
-
-	```
-	[UNIT]
-	Description=tomcat8
-	After=syslog.target network.target
-
-	[Service]
-	Type=forking
-
-	Environment="JAVA_HOME=/usr/local/douzone/java"
-	Environment="CATALINA_HOME=/usr/local/douzone/tomcat"
-
-	ExecStart=/usr/local/douzone/tomcat/bin/startup.sh
-	ExecStop=/usr/local/douzone/tomcat/bin/shutdown.sh
-
-	User=root
-	Group=root
-
-	[Install]
-	WantedBy=multi-user.target
+	# mysql
+	export PATH=$PATH:/usr/local/douzone/mariadb/bin
 	```
 
-   등록  
-   ```systemctl enable tomcat```  
-
-10. tomcat 서비스 실행/중지/재실행  
-   ```systemctl start tomcat```  
-   ``` systemctl stop tomcat```   
-   ``` systemctl restart tomcat```  
-
-11. tomcat manager 설정  
-   1) tomcat-users.xml 설정  
-       ```vi /usr/local/douzone/tomcat/conf/tomcat-users.xml```  
-	
-		1-1) /tomcat-users 바로위에 붙여넣어야할 내용  	
-		```
-		<role rolename="manager"/>
-		<role rolename="manager-gui" />
-		<role rolename="manager-script" />
-		<role rolename="manager-jmx" />
-		<role rolename="manager-status" />
-		<role rolename="admin"/>
-		<user username="admin" password="manager" roles="admin,manager,manager-gui, manager-script, manager-jmx, manager-status"/>
-		```
-	
-
-   2) contect.xml 설정  
-   ```vi /usr/local/douzone/tomcat/webapps/manager/META-INF/context.xml```
-
-- 이전 내용
-	![image](https://user-images.githubusercontent.com/60701130/154430796-93be374d-9ea4-4e79-be19-5e37aab33ff4.png)
-
-- 설정 변경 후
-![image](https://user-images.githubusercontent.com/60701130/154430940-1b1fd238-7ba9-4e61-8bc5-317f9651e611.png)
-
-- 추가 및 변경된 내용
-	```
-	<Context antiResourceLocking="false" privileged="true" docBase="${catalina.home}/webapps/manager">
-	<Valve className="org.apache.catalina.valves.RemoteAddrValve"
-			allow="^.*$" />
-	</Context>
-	```
-
-12. tomcat 재시작
-    ``` systemctl stop tomcat```    
-    ``` ps -ef | grep tomcat```    
-    ``` systemctl start tomcat```  
-
-13. 확인하기  
-	http://자기IPAddr/manager 
-
--	비밀번호는  tomcat-users.xml 설정 시 맨밑구문   
-	```
-	<user username="admin" password="manager" roles="admin,manager,manager-gui, manager-script, manager-jmx, manager-status"/>
-	```
-
-![image](https://user-images.githubusercontent.com/60701130/154431399-0d878a52-ed55-43dd-a52d-e0190c583e2b.png)
-  
-
-
- 
-
-
-
- 
- 
-
-    
