@@ -89,3 +89,58 @@ comments: true
 	export PATH=$PATH:/usr/local/douzone/mariadb/bin
 	```
 
+17. 서비스등록  
+1) 켜져있는 mariadb 서버 죽이기  
+ 	ps -ef |grep mysql 로 PID 확인하기
+	
+	![image](https://user-images.githubusercontent.com/60701130/155153637-3f07e336-4968-41c1-a4cd-5852dbc4e5cb.png)
+	mysql의 pid번호가 4자리씩 두개인데 뒤에 번호를 먼저 kill하고 앞의 pid번호를 kill해야 서버가 죽음    
+	앞에 pid번호를 먼저 kill 해봤는데 새로운 pid번호가 다시 생성됨  
+	`kill -9 1480`  
+	`kill -9 1660`  
+
+2) 서비스 등록하기  
+	`vi /usr/lib/systemd/system/mysql.service`
+	```
+	[Unit]
+	Description=MySQL Community Server
+	After=network.target
+	After=syslog.target
+
+	[Install]
+	WantedBy=multi-user.target
+	Alias=mysql.service
+
+	[Service]
+	User=mysql
+	Group=mysql
+
+	# Execute pre and post scripts as root
+	PermissionsStartOnly=true
+
+	# Needed to create system tables etc.
+	#ExecStartPre=
+
+	# Start main service
+	ExecStart=/usr/local/douzone/mysql/bin/mysqld_safe
+
+	# Don't signal startup success before a ping works
+	#ExecStartPost=
+
+	# Give up if ping don't get an answer
+	TimeoutSec=300
+
+	Restart=always
+	PrivateTmp=false
+	```
+
+3) 등록 확인  
+	(1) mysql 서버 구동  
+	`systemctl enable mysql.service`  
+	`systemctl start mysql.service`  
+	`ps -ef | grep mysql`    
+
+	(2) mysql 끄고 리부트했을 때 켜지는지 확인  
+	`systemctl stop mysql.service`  
+	`reboot`  
+	`ps -ef | grep mysql`  
