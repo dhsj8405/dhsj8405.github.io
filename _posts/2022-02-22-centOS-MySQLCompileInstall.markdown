@@ -65,12 +65,87 @@ comments: true
 10. 인스톨 디렉토리 /mariadb 소유자 변경  
 `chown -R mysql:mysql /usr/local/douzone/mariadb`
 
+- mysql 데몬을 뛰우기 전에 소켓 만드는 것을 root가 하기 때문에 tmp 디렉터리의 group 소유권은 root로 변경합니다.  
+`chown mysql:root /usr/local/douzone/mysql/tmp`
+	
+- 변경확인
+	ls -l /usr/local/douzone/
+
+
+
 11. 설정파일 위치 변경  
 `cp -R /usr/local/douzone/mariadb/etc/my.cnf.d /etc`
 
 12. 기본(관리) 데이터베이스(mysql) 생성  
 `/usr/local/douzone/mariadb/scripts/mysql_install_db --user=mysql --basedir=/usr/local/douzone/mariadb --defaults-file=/usr/local/douzone/mariadb/etc/my.cnf --datadir=/usr/local/douzone/mariadb/data`
 
+- mysql 환경설정  
+	`vi /etc/my.cnf`
+	```
+	# Example MySQL config file for large systems.
+	#
+	# This is for a large system with memory = 512M where the system runs mainly
+	# MySQL.
+	#
+	# MySQL programs look for option files in a set of
+	# locations which depend on the deployment platform.
+	# You can copy this option file to one of those
+	# locations. For information about these locations, see:
+	# http://dev.mysql.com/doc/mysql/en/option-files.html
+	#
+	# In this file, you can use all long options that a program supports.
+	# If you want to know which options a program supports, run the program
+	# with the "--help" option.
+
+	# The following options will be passed to all MySQL clients
+	[client]
+	port            = 3306
+	socket         = /usr/local/victolee/mysql/tmp/mysql.sock
+	character-set   = utf8
+
+	# Here follows entries for some specific programs
+
+	# The MySQL server
+	[mysqld]
+	port            = 3306
+	socket         = /usr/local/victolee/mysql/tmp/mysql.sock
+	key_buffer_size = 256M
+	max_allowed_packet = 1M
+	table_open_cache = 256
+	sort_buffer_size = 1M
+	read_buffer_size = 1M
+	read_rnd_buffer_size = 4M
+	myisam_sort_buffer_size = 64M
+	thread_cache_size = 8
+	query_cache_size= 16M
+	# Try number of CPU's*2 for thread_concurrency
+	thread_concurrency = 8
+
+	character-set-server=utf8
+	collation-server=utf8_general_ci
+
+	init_connect=SET collation_connection=utf8_general_ci
+	init_connect=SET NAMES utf8
+
+	[mysqldump]
+	quick
+	max_allowed_packet = 16M
+
+	[mysql]
+	no-auto-rehash
+	default-character-set = utf8
+	# Remove the next comment character if you are not familiar with SQL
+	#safe-updates
+
+	[myisamchk]
+	key_buffer_size = 128M
+	sort_buffer_size = 128M
+	read_buffer = 2M
+	write_buffer = 2M
+
+	[mysqlhotcopy]
+	interactive-timeout
+	```
 13. 서버 구동   
 서비스 등록안하면 매번 입력해야함(실행시 아무것도 입력안되기도함 서비스등록하는거 추천)  
 `/usr/local/douzone/mariadb/bin/mysqld_safe &`
@@ -144,3 +219,7 @@ comments: true
 	`systemctl stop mysql.service`  
 	`reboot`  
 	`ps -ef | grep mysql`  
+
+
+# 리눅스에서 mysql 접속하기  
+`mysql -p`

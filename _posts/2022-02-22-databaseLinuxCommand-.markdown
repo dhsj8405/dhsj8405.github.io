@@ -9,7 +9,7 @@ comments: true
 
 ---
 
-#기본 명령어
+# 기본 명령어
 
 서버에 존재하는 db 찾기  
 `show database;`
