@@ -18,11 +18,11 @@ comments: true
 MariaDB [none]> `create database webdb`;  
 
 2. user 생성  
-MariaDB [none]> `create user 'webdb'@'192.168.80.31' identified by 'webdb'`;    
-=> create user '유저명'@'192.168.80.31' identified by '패스워드명';  
+MariaDB [none]> `create user 'webdb'@'192.1xx.xxx.xxx' identified by 'webdb'`;    
+=> create user '유저명'@'hostname' identified by '패스워드명';  
 
 3. 권한 부여
-MariaDB [none]> `grant all privileges on webdb.* to 'webdb'@'192.168.80.31'`;  
+MariaDB [none]> `grant all privileges on webdb.* to 'webdb'@'192.1xx.xxx.xxx'`;  
 => grant all privileges on db명.* to '유저명'@'hostname  
 
 4. 새 변경사항 적용  
@@ -35,7 +35,7 @@ MariaDB [none]> `flush privileges`;
 
 에러 뜸
 
-![image](https://user-images.githubusercontent.com/60701130/155301084-b3f5fc9c-65d2-4108-a4a4-f7c6b740b7c3.png)
+![image](https://user-images.githubusercontent.com/60701130/155358262-34f63c9e-4841-442f-a62d-e3173a63f4e8.png)
 
 원인
 1. 바보같이 포트번호에 ssh포트번호인 22번 넣고있었음
@@ -45,8 +45,6 @@ MariaDB [none]> `flush privileges`;
 -  port번호에 mysql에 할당된 포트번호를 넣어야함   
 - 포트 번호 확인방법  
     `netstat -tulpn | grep LISTEN`
-
-![image](https://user-images.githubusercontent.com/60701130/155355045-c9ab75c2-5cff-4575-b098-fe5ec7dd8c65.png)
 
 testconnection 누르고 성공하면 ok
 
