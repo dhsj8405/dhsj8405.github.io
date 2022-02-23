@@ -1,8 +1,8 @@
 ---
 
 layout: post
-title: '[Linux]]db 권한부여 및 윈도우 워크벤치랑 연결'
-subtitle: '[Linux]]db 권한부여 및 윈도우 워크벤치랑 연결'
+title: '[Linux]]db 권한부여 및 윈도우 워크벤치 연결'
+subtitle: '[Linux]]db 권한부여 및 윈도우 워크벤치 연결'
 categories: devlog
 tags: --- centOS
 comments: true
@@ -22,11 +22,11 @@ MariaDB [none]> `create user 'webdb'@'192.168.80.31' identified by 'webdb'`;
 => create user '유저명'@'192.168.80.31' identified by '패스워드명';  
 
 3. 권한 부여
-MariaDB [none]> grant all privileges on webdb.* to 'webdb'@'192.168.80.31';  
+MariaDB [none]> `grant all privileges on webdb.* to 'webdb'@'192.168.80.31'`;  
 => grant all privileges on db명.* to '유저명'@'hostname  
 
 4. 새 변경사항 적용  
-MariaDB [none]> flush privileges;  
+MariaDB [none]> `flush privileges`;  
 
 5. Windows의 Workbench 에서 테스트 
 
