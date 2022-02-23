@@ -30,16 +30,20 @@ MariaDB [none]> flush privileges;
 
 5. Windows의 Workbench 에서 테스트 
 
-![image](https://user-images.githubusercontent.com/60701130/155301007-df9e292c-7ad8-4e18-b626-1b89519bab54.png)
+![image](https://user-images.githubusercontent.com/60701130/155357161-5007593a-4c9d-43ca-b90b-367060d9ff58.png)
+
 
 에러 뜸
 
 ![image](https://user-images.githubusercontent.com/60701130/155301084-b3f5fc9c-65d2-4108-a4a4-f7c6b740b7c3.png)
 
-원인 : port번호에 mysql에 할당된 포트번호를 넣어야함 
-1. 바보같이 포트번호에 ssh포트번호인 22번 넣고있었고
+원인
+1. 바보같이 포트번호에 ssh포트번호인 22번 넣고있었음
 2. mysql포트는 기본적으로 3306인데 왜그런지 모르게 3307로 돼있었음
-    - 포트 번호 확인방법  
+
+해결  
+-  port번호에 mysql에 할당된 포트번호를 넣어야함   
+- 포트 번호 확인방법  
     `netstat -tulpn | grep LISTEN`
 
 ![image](https://user-images.githubusercontent.com/60701130/155355045-c9ab75c2-5cff-4575-b098-fe5ec7dd8c65.png)
