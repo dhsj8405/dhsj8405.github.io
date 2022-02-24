@@ -31,6 +31,7 @@ MariaDB [none]> `flush privileges`;
 5. Windows의 Workbench 에서 테스트 
 
 ![image](https://user-images.githubusercontent.com/60701130/155357161-5007593a-4c9d-43ca-b90b-367060d9ff58.png)
+- 위 사진은 에러 해결 후 사진임
 
 
 에러 뜸
