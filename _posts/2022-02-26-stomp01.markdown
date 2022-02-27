@@ -41,10 +41,21 @@ Body^@
 메세지를 보내기 위한 명령
 subscritbe,send
 - console.log 예시
+    clientA가 5번 채팅방을 구독할 때
     ```
-    >>> SUBSCRIBE
-    id: sub-0
-    destination:/topic/users
+    SUBSCRIBE
+    destination: /topic/chat/room/5
+    id: sub-1
+
+    ^@
+    ```
+    cleintB에서 채팅 메시지를 보낼 때
+    ```
+    SEND
+    destination: /pub/chat
+    content-type: application/json
+
+    {"chatRoomId": 5, "type": "MESSAGE", "writer": "clientB"}^@
     ```
 - 사용하려면 destination이라는 헤더 필요  
     - destination   
@@ -56,5 +67,21 @@ subscritbe,send
             2. 브로커 방향
                 - `/topic/.../...` 주소는 pub-sub 방식의 one to many일 때 사용  
                 - `/queue/.../...` 주소는 point to point 방식의 one to one일 때 사용
-            
-    
+
+클라이언트에서 서버로 SEND할 때 흐름
+![image](https://user-images.githubusercontent.com/60701130/155841215-9a902eaa-ae5d-4389-a783-28493f22cc4d.png)
+
+ 
+1.  클라이언트에서 destination에 /app 이라는 prefix를 주었을때 흐름
+
+해당 request는 @messagemapping된 스프링 컨트롤러(simpAnnotationMethod)로 흘러가고 컨트롤러에서 메세지를 수신한 후 여러 작업들을 처리한 후에 /topic이라는 prefix를 통해 브로커에게 전달하면 브로커는  STOMP MESSAGE 메소드를 이용해서 특정 토픽을 구독하는 구독자들에게 reponse를 보낸다.
+
+ 
+
+2.  클라이언트에서 destination에 /topic이라는 prefix를 주었을때 흐름
+
+ 
+
+매핑된 스프링 컨트롤러를 안거치고 브로커에게 직접 접근하겠다는 뜻인데 주로 클라이언트가 subscribe를 할때 이 prefix를 사용하는 것으로 보인다. 계속 설명하지만  /topic 이라는 prefix를 쓰면 브로커에게 직접 전달되는데 이 경우 브로커가 직접 받아서 subscriber들 관리를 하는 것 같다.
+
+  
