@@ -58,15 +58,14 @@ subscritbe
 - console.log 예시
     clientA가 5번 채팅방을 구독할 때
     ```
-    SUBSCRIBE
+    >>>SUBSCRIBE
     destination: /topic/chat/room/5
     id: sub-0
 
-    ^@
     ```
     cleintB에서 채팅 메시지를 보낼 때
     ```
-    SEND
+    >>>SEND
     destination: /pub/chat
     content-type: application/json
 
@@ -103,3 +102,107 @@ content-length:18
 
 {"name":"DongHyeonwoo"}
 ```
+
+
+
+# 코드구현
+
+## 소켓 설정
+
+``` java
+package com.douzone.stomp.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
+import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
+import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+
+
+@Configuration
+@EnableWebSocketMessageBroker//Stomp를 사용하기위해 선언하는 어노테이션
+public class SocketConfig implements WebSocketMessageBrokerConfigurer {
+	@Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        // handshake가 될 endpoint 지정
+		registry.addEndpoint("/stomp").withSockJS();
+    }
+
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry registry) {
+        // prefix에 따라 해당되는 메시지 핸들러로 분기
+    	
+    	//pub
+    	// prefix가 /app일 때 SimpAnnotationMethod로 요청이 흘러감
+    	// ex) 클라이언트가 메시지 보낼 때
+    	// ex) stomp.send("/sub/chat/room/",function(){})
+    	registry.setApplicationDestinationPrefixes("/app");
+
+    	//sub
+    	// prefix가 /topic일 때 브로커에 직접 접근 : 브로커가 직접 받아서 subscriber들을 관리
+    	// ex)클라이언트가 메시지 받을 때				
+    	// ex)stomp.subscribe("/sub/chat/room/",function(){})
+        registry.enableSimpleBroker("/topic");
+    }
+}
+
+```
+
+
+
+
+## client 코드
+``` java
+var stompClient;
+$(document).on("click", ".conn-btn", function(){
+	console.log("버튼클릭");
+	var socket = new SockJS("/stomp");
+	stompClient = Stomp.over(socket);
+	
+	stompClient.connect({}, function(frame) {
+		console.log('Connected:' + frame);
+		stompClient.subscribe('/topic/a', function(response){
+			console.log(response);
+			console.log(JSON.parse(response.body));
+		});
+	});
+	
+});
+
+$(document).on("click", ".send-btn", function(){
+	console.log("sending");
+	message = $("#msg").val();
+	console.log(message);
+	stompClient.send("/app/msg",{},JSON.stringify({message : message}));
+		
+});
+```
+
+## 서버 측 코드
+
+클라이언트에서 /app/msg로 send 명령어가 왔을 때 메시지 받고
+구독자들한테 브로드 캐스팅
+
+```java
+@Controller
+public class StompController {
+
+	@Autowired
+	private SimpMessagingTemplate simpMessagingTemplate;
+
+	@MessageMapping("/msg")
+	public void showMessage(String a) {
+		System.out.println(a);
+		
+		String msg[] = a.split(":");
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("메시지", msg[1]);
+		simpMessagingTemplate.convertAndSend("/topic/a",map);
+	}
+	
+}
+```
+
+# 결과
+
+![image](https://user-images.githubusercontent.com/60701130/156189968-7d253480-75d1-4c35-bbe2-385ea396adb0.png)
