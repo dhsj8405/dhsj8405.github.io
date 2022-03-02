@@ -24,14 +24,17 @@ fetch
 # 로컬 깃저장소 만들기 
  ## 1. GitHub 저장소를 원격 저장소로 등록
 
-git init
-git add -A
-git commit -m "first commit"
-git branch -M main
-git remote add origin github.com/dhsj8405
-git push -u origin main
+```
+git init  
+git add -A  
+git commit -m "first commit"  
+git branch -M main  
+git remote add origin github.com/dhsj8405  
+git push -u origin main  
+```
 
 프로젝트 오른쪽 클릭 - team - share project 에서 Use or create repository in parent folder of project, (Create Repository 누르고 )하위 내용 체크  
+
  ## 2. git 저장위치 확인용 git perspective 생성하기(git repository)  
 window - show view - other - git - git repositories 오픈
 * local 레포지토리 = .git 디렉토리 
