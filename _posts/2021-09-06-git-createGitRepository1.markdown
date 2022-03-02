@@ -23,13 +23,16 @@ fetch
 
 # 로컬 깃저장소 만들기 
  ## 1. GitHub 저장소를 원격 저장소로 등록
+(1) 깃허브에서 레포지토리 생성  
+(2) 터미널로 메이븐프로젝트(homepractice)가 있는 폴더로이동
+ex)C:\eclipse\workspace\douzone\homepractice  
 
 ```
 git init  
 git add -A  
 git commit -m "first commit"  
 git branch -M main  
-git remote add origin github.com/dhsj8405  
+git remote add origin https://github.com/dhsj8405/homepractice.git
 git push -u origin main  
 ```
 
