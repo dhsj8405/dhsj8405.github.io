@@ -1,13 +1,23 @@
 ---
 
 layout: post
-title: '웹팩 설정하기'
-subtitle: '웹팩 설정하기'
+title: '웹팩 기본설정'
+subtitle: '웹팩 기본설정'
 categories: devlog
 tags: react
 comments: true
 
 ---
+# vscode 깃 연동할때
+부모 폴더안에 .vscode 폴더 생성후 extensions.json 파일 생성해야됨
+
+```
+{
+    "recommendations": [
+        "alexshenvscode.vscode-osu"
+    ]
+}
+```
 
 # 웹팩
 
