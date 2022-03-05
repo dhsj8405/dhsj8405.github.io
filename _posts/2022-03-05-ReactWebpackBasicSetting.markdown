@@ -19,7 +19,7 @@ comments: true
 }
 ```
 
-# 웹팩
+# 웹팩 기본설정
 
 ## node 설치하기  
 `npm init -y`
