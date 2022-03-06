@@ -22,12 +22,13 @@ comments: true
  - yarn 설치  
 
 `npm install -g yarn`
--  axios 설치
+-  axios 설치  
+`yarn add axios`
 
 ## yarn 설치시 오류
 ![image](https://user-images.githubusercontent.com/60701130/156909632-78ae7667-f63c-4466-8cbb-820303ad7b96.png)
 - 권한 확인  
-get-ExecutionPolicy  
+`get-ExecutionPolicy`  
 ![image](https://user-images.githubusercontent.com/60701130/156909640-bd99bb94-5e35-4e79-978e-23321b2f1d96.png)
 - 권한 상태값  
  Restricted : default설정값으로, 스크립트 파일을 실행할 수 없습니다.  
@@ -38,17 +39,20 @@ get-ExecutionPolicy
  Undefined : 권한을 설정하지 않겠음  
 
 - 권한 상태 변경  
-Set-ExecutionPolicy RemoteSigned
+`Set-ExecutionPolicy RemoteSigned`
 
 - 권한 변경 확인  
-    get-ExecutionPolicy
+    `get-ExecutionPolicy`
 
 
 
 # CORS
 react port 3000  
 spring port 9099
-## RESTController 작성
+
+## Server(Back)
+
+- RESTController 작성
 
 ```
 package com.douzone.cors;
@@ -64,114 +68,126 @@ public class MainController {
     }
 }
 ```
+- Cors Filter
+    - 생성  
+        ```
+        public class CorsFilter implements Filter{
 
-## front 작성
-App.js
-```
-import axios from 'axios'
-import React, { useState, useEffect } from 'react';
-
-const App = () => {
-    const [ str, setStr ] = useState('');
-
-    // 첫 렌더링에만 호출하기(매개변수로 빈배열)
-    useEffect(() =>{
-        axios({
-            url: 'http://localhost:9099/main',
-            method: 'GET'
-        }).then((res)=> {
-            setStr(res.data);
-        })
-    },[]);
-    
-    return (
-        <h1>{str}</h1>             
-    );
-}
-
-export default App;
-```
-
-## proxy 설정
-
-- webpack.config.js 설정
-    ```
-        devServer: {
-        // contentBase: path.resolve('public'),
-        host: '0.0.0.0',
-        port: 3000,
-        // inline: true,
-        proxy: {
-            '/api': 'http://localhost:9099'
-        },
-        hot: false,
-        compress: true,
-        historyApiFallback: true            // 가상~~ 404 났을때 메인으로도림
-    }
-    ```
-
-    실행  
-    `npx webpack serve --progress`
-
-    - 브라우저 흰화면이랑 console 에러뜸
-    ![image](https://user-images.githubusercontent.com/60701130/156912126-a03dc8de-fe54-41f1-bdd9-d2bfbf92cf56.png)
-
-    
-    app.js내용 함수형으로 바꾸고
-    index.js 수정하니 잘됨
-    
-    ```
-    import ReactDOM from 'react-dom';  import {App} from './App.js';  
-             
-    ReactDOM.render(App(), document.getElementById('root') )
-    ```
-    ->
-
-    ```
-    import ReactDOM from 'react-dom';  import App from './App.js';           
-    import React from 'react';
-    ReactDOM.render(  
-    <App />,
-    document.getElementById('root') 
-    )
-    ```
-
-## CorsFilter 생성 및 설정
-- 생성  
-    ```
-    public class CorsFilter implements Filter{
-
-        @Override
-        public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
-                throws IOException, ServletException {
-            System.out.println("[CorsFilter.java] CORS 필터 동작");
-            HttpServletResponse resp = (HttpServletResponse) res;
-            resp.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-            resp.setHeader("Access-Control-Allow-Methods", "*");
-            resp.setHeader("Access-Control-Allow-Headers", "*");
-            resp.setHeader("Access-Control-Expose-Headers", "*");
-            
-            chain.doFilter(req, res);
+            @Override
+            public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+                    throws IOException, ServletException {
+                System.out.println("[CorsFilter.java] CORS 필터 동작");
+                HttpServletResponse resp = (HttpServletResponse) res;
+                resp.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+                resp.setHeader("Access-Control-Allow-Methods", "*");
+                resp.setHeader("Access-Control-Allow-Headers", "*");
+                resp.setHeader("Access-Control-Expose-Headers", "*");
+                
+                chain.doFilter(req, res);
+            }
         }
-    }
-    ```
-- 설정
-```
-@Configuration	
-public class FilterConfig {
+        ```
+    - 설정  
+        ```
+        @Configuration	
+        public class FilterConfig {
 
-	@Bean
-	public FilterRegistrationBean<CorsFilter> corsFilter(){
-		System.out.println("[FilterConfig.java] CORS 필터 등록");
-		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter());
-		bean.addUrlPatterns("/main/*");
-		
-		bean.setOrder(0); // 낮은 번호부터 실행됨.
-		return bean;
-	}
-	
-}
-```
+            @Bean
+            public FilterRegistrationBean<CorsFilter> corsFilter(){
+                System.out.println("[FilterConfig.java] CORS 필터 등록");
+                FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter());
+                bean.addUrlPatterns("/main/*");
+                
+                bean.setOrder(0); // 낮은 번호부터 실행됨.
+                return bean;
+            }
+            
+        }
+        ```
+
+## Client
+- index.js
+    ```
+    import ReactDOM from 'react-dom';
+    import App from './App.js';           // ex6의 언어적인 모듈시스템 : 언어적으로 표현
+    import React from 'react';
+
+    ReactDOM.render(
+        
+        <App />,  
+        document.getElementById('root')
+        )
+    ```
+- App.js
+    ```
+    import axios from 'axios'
+    import React, { useState, useEffect } from 'react';
+
+    const App = () => {
+        const [ str, setStr ] = useState('');
+
+        // 첫 렌더링에만 호출하기(매개변수로 빈배열)
+        useEffect(() =>{
+            axios({
+                url: 'http://localhost:9099/main',
+                method: 'GET'
+            }).then((res)=> {
+                setStr(res.data);
+            })
+        },[]);
+        
+        return (
+            <h1>{str}</h1>             
+        );
+    }
+
+    export default App;
+    ```
+
+- proxy 설정
+
+    - webpack.config.js 설정
+        ```
+            devServer: {
+            // contentBase: path.resolve('public'),
+            host: '0.0.0.0',
+            port: 3000,
+            // inline: true,
+            proxy: {
+                '/api': 'http://localhost:9099'
+            },
+            hot: false,
+            compress: true,
+            historyApiFallback: true            // 가상~~ 404 났을때 메인으로도림
+        }
+        ```
+
+        실행  
+        `npx webpack serve --progress`
+
+        - 브라우저 흰화면이랑 console 에러뜸
+        ![image](https://user-images.githubusercontent.com/60701130/156912126-a03dc8de-fe54-41f1-bdd9-d2bfbf92cf56.png)
+
+        
+        app.js내용 함수형으로 바꾸고
+        index.js 수정하니 잘됨
+        
+        ```
+        import ReactDOM from 'react-dom';  import {App} from './App.js';  
+                
+        ReactDOM.render(App(), document.getElementById('root') )
+        ```
+        ->
+
+        ```
+        import ReactDOM from 'react-dom';  import App from './App.js';           
+        import React from 'react';
+        ReactDOM.render(  
+        <App />,
+        document.getElementById('root') 
+        )
+        ```
+
 
 # 결과
 ![image](https://user-images.githubusercontent.com/60701130/156913841-c9f3b87b-5cae-42a3-9d54-b082b60d3281.png)
