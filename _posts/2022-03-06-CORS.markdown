@@ -1,8 +1,8 @@
 ---
 
 layout: post
-title: 'CORS'
-subtitle: 'CORS'
+title: 'CORS 설정'
+subtitle: 'CORS 설정'
 categories: devlog
 tags: react
 comments: true
