@@ -4,9 +4,180 @@ layout: post
 title: 'CORS'
 subtitle: 'CORS'
 categories: devlog
-tags: react,java
+tags: react
 comments: true
 
 ---
 
+# 설치  
+# webpack-practice 복사해서 사용
+
+- package.json 생성  
+`npm init -y`  
+
+- 웹팩 라이브러리,로더, 바벨로더 설정  
+ `npm i -D webpack webpack-cli webpack-dev-server babel-loader style-loader css-loader sass-loader node-sass @babel/core @babel/cli @babel/cli @babel/preset-env @babel/preset-react`    
+ - react dom 사용  
+  `npm i react react-dom`
+ - yarn 설치  
+
+`npm install -g yarn`
+-  axios 설치
+
+## yarn 설치시 오류
+![image](https://user-images.githubusercontent.com/60701130/156909632-78ae7667-f63c-4466-8cbb-820303ad7b96.png)
+- 권한 확인  
+get-ExecutionPolicy  
+![image](https://user-images.githubusercontent.com/60701130/156909640-bd99bb94-5e35-4e79-978e-23321b2f1d96.png)
+- 권한 상태값  
+ Restricted : default설정값으로, 스크립트 파일을 실행할 수 없습니다.  
+ AllSigned : 신뢰할 수 있는(서명된) 스크립트 파일만 실행할 수 있습니다.  
+ RemoteSigned : 로컬에서 본인이 생성한 스크립트와, 신뢰할 수 있는(서명된) 스크립트 파일 실행할 수 있습니다.   
+ Unrestricted : 모든 스크립트 실행가능  
+ ByPass : 경고/차단 없이 모든 것을 실행가능하도록함  
+ Undefined : 권한을 설정하지 않겠음  
+
+- 권한 상태 변경  
+Set-ExecutionPolicy RemoteSigned
+
+- 권한 변경 확인  
+    get-ExecutionPolicy
+
+
+
 # CORS
+react port 3000  
+spring port 9099
+## RESTController 작성
+
+```
+package com.douzone.cors;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MainController {
+    @GetMapping("/main")
+    public String getHome(){
+        return "Hello World!";
+    }
+}
+```
+
+## front 작성
+App.js
+```
+import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+
+const App = () => {
+    const [ str, setStr ] = useState('');
+
+    // 첫 렌더링에만 호출하기(매개변수로 빈배열)
+    useEffect(() =>{
+        axios({
+            url: 'http://localhost:9099/main',
+            method: 'GET'
+        }).then((res)=> {
+            setStr(res.data);
+        })
+    },[]);
+    
+    return (
+        <h1>{str}</h1>             
+    );
+}
+
+export default App;
+```
+
+## proxy 설정
+
+- webpack.config.js 설정
+    ```
+        devServer: {
+        // contentBase: path.resolve('public'),
+        host: '0.0.0.0',
+        port: 3000,
+        // inline: true,
+        proxy: {
+            '/api': 'http://localhost:9099'
+        },
+        hot: false,
+        compress: true,
+        historyApiFallback: true            // 가상~~ 404 났을때 메인으로도림
+    }
+    ```
+
+    실행  
+    `npx webpack serve --progress`
+
+    - 브라우저 흰화면이랑 console 에러뜸
+    ![image](https://user-images.githubusercontent.com/60701130/156912126-a03dc8de-fe54-41f1-bdd9-d2bfbf92cf56.png)
+
+    
+    app.js내용 함수형으로 바꾸고
+    index.js 수정하니 잘됨
+    
+    ```
+    import ReactDOM from 'react-dom';  import {App} from './App.js';  
+             
+    ReactDOM.render(App(), document.getElementById('root') )
+    ```
+    ->
+
+    ```
+    import ReactDOM from 'react-dom';  import App from './App.js';           
+    import React from 'react';
+    ReactDOM.render(  
+    <App />,
+    document.getElementById('root') 
+    )
+    ```
+
+## CorsFilter 생성 및 설정
+- 생성  
+    ```
+    public class CorsFilter implements Filter{
+
+        @Override
+        public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+                throws IOException, ServletException {
+            System.out.println("[CorsFilter.java] CORS 필터 동작");
+            HttpServletResponse resp = (HttpServletResponse) res;
+            resp.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+            resp.setHeader("Access-Control-Allow-Methods", "*");
+            resp.setHeader("Access-Control-Allow-Headers", "*");
+            resp.setHeader("Access-Control-Expose-Headers", "*");
+            
+            chain.doFilter(req, res);
+        }
+    }
+    ```
+- 설정
+```
+@Configuration	
+public class FilterConfig {
+
+	@Bean
+	public FilterRegistrationBean<CorsFilter> corsFilter(){
+		System.out.println("[FilterConfig.java] CORS 필터 등록");
+		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter());
+		bean.addUrlPatterns("/main/*");
+		
+		bean.setOrder(0); // 낮은 번호부터 실행됨.
+		return bean;
+	}
+	
+}
+```
+
+# 결과
+![image](https://user-images.githubusercontent.com/60701130/156913841-c9f3b87b-5cae-42a3-9d54-b082b60d3281.png)
+
+
+## 고찰
+app.js에서 axios로 받아온 res.data가 아닌 res로 바로 setStr 했었는데 에러 떴었음
+![image](https://user-images.githubusercontent.com/60701130/156913882-3e857d1e-1590-41cd-bbbd-f3fdda53862b.png)
+- 객체 형태는 child가 될 수 없다

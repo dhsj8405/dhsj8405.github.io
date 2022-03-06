@@ -12,7 +12,7 @@ comments: true
 # webpack-practice 복사해서 사용
 `npm init -y`  
 
-# 로더, 바벨로더 설정
+# 웹팩 라이브러리,로더, 바벨로더 설정
  `npm i -D webpack webpack-cli webpack-dev-server babel-loader style-loader css-loader sass-loader node-sass @babel/core @babel/cli @babel/cli @babel/preset-env @babel/preset-react`    
 
 - @babel/preset-env   
