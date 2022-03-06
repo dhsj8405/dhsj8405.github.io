@@ -50,43 +50,7 @@ com.douzone.chat
         --- CorsFilter.java  
 </pre>
 
-- RESTController 작성
 
-
-## Client
-- index.js  
-    ```
-        import ReactDOM from 'react-dom';  import App from './App.js';           
-        import React from 'react';
-        ReactDOM.render(  
-        <App />,
-        document.getElementById('root') 
-        )
-    ```
-- App.js
-  
-- proxy 설정
-
-    - webpack.config.js 설정
-        ```
-            devServer: {
-            // contentBase: path.resolve('public'),
-            host: '0.0.0.0',
-            port: 3000,
-            // inline: true,
-            proxy: {
-                '/api': 'http://localhost:9099'
-            },
-            hot: false,
-            compress: true,
-            historyApiFallback: true            // 가상~~ 404 났을때 메인으로도림
-        }
-        ```
-
-        실행  
-        `npx webpack serve --progress`
-        
-        ->
 
 
 
