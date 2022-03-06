@@ -9,7 +9,7 @@ comments: true
 
 ---
 
-# 설치  
+# 사전 설치  
 # webpack-practice 복사해서 사용
 
 - package.json 생성  
