@@ -106,5 +106,8 @@ module.exports = {
 ```
 
 ## 어플리케이션 실행
-`npx webpack`
+`npx webpack`  
 `npx webpack serve --progress`
+
+## localhost:9999 접속 결과
+![image](https://user-images.githubusercontent.com/60701130/156908159-ee4167b8-c7fe-4302-a6eb-b1b5751ccea1.png)
