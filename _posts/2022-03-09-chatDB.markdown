@@ -1,0 +1,23 @@
+---
+
+layout: post
+title: 'chat(StompJS) db 모델링'
+subtitle: 'chat(StompJS) db 모델링'
+categories: devlog
+tags: database
+comments: true
+
+---
+
+# db 모델 초안
+![image](https://user-images.githubusercontent.com/60701130/157367751-3f3080be-45ff-46c5-aeab-0ad3c9d90c3b.png)
+
+
+# 포워드 엔지니어링
+![image](https://user-images.githubusercontent.com/60701130/157367999-b1a7992d-6a5b-402b-9f4d-292fac318ad1.png)
+
+
+![image](https://user-images.githubusercontent.com/60701130/157369596-a997d256-7d0d-4c24-8bf2-d70deb485b63.png)
+
+- 테이블 초기화 안하려면 오른쪽으로 옮겨야함
+![image](https://user-images.githubusercontent.com/60701130/157369821-28db867b-4015-4c5e-bd52-731d6999126c.png)

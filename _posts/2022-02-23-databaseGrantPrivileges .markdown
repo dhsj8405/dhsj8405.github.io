@@ -17,12 +17,14 @@ comments: true
 1. database 생성  
 MariaDB [none]> `create database webdb`;  
 
-2. user 생성  
-MariaDB [none]> `create user 'webdb'@'192.1xx.xxx.xxx' identified by 'webdb'`;    
+2. user 생성 (채팅 만들때 1번으로하면 accessdenied 뜸) 
+(1) MariaDB [none]> `create user 'webdb'@'192.1xx.xxx.xxx' identified by 'webdb'`;    
+(2) MariaDB [none]> `create user 'webdb'@'%' identified by 'webdb'`;    
 => create user '유저명'@'hostname' identified by '패스워드명';  
 
-3. 권한 부여
-MariaDB [none]> `grant all privileges on webdb.* to 'webdb'@'192.1xx.xxx.xxx'`;  
+3. 권한 부여 (채팅 만들때 1번으로하면 accessdenied 뜸)
+(1) MariaDB [none]> `grant all privileges on webdb.* to 'webdb'@'%'`;  
+(2) MariaDB [none]> `grant all privileges on webdb.* to 'webdb'@'%'`;  
 => grant all privileges on db명.* to '유저명'@'hostname  
 
 4. 새 변경사항 적용  
