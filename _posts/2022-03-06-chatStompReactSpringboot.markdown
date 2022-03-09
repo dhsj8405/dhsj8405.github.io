@@ -50,6 +50,11 @@ com.douzone.chat
         --- CorsFilter.java  
 </pre>
 
+메세지 전송시(client.send) 오류 
+![image](https://user-images.githubusercontent.com/60701130/157266519-6b7220e9-6c54-417f-b9d3-4f0c45d795de.png)
+
+해결
+: 메시지 전송할때마다 connect해줌
 
 
 

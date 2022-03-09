@@ -28,6 +28,9 @@ MariaDB [none]> `grant all privileges on webdb.* to 'webdb'@'192.1xx.xxx.xxx'`;
 4. 새 변경사항 적용  
 MariaDB [none]> `flush privileges`;  
 
+4-1. 사용자별 권한 조회
+`show grants for '사용자계정'@'호스트';`
+
 5. Windows의 Workbench 에서 테스트 
 
 ![image](https://user-images.githubusercontent.com/60701130/155357161-5007593a-4c9d-43ca-b90b-367060d9ff58.png)
