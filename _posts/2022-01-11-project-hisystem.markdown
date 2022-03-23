@@ -12,6 +12,10 @@ tags: hisystem
 
 ## HISystem 개요  
 
+`Front-end` React  
+`Back-end` Spring Boot   
+`Database` MariaDB  
+
 ### 설명
 
 의료정보시스템(HIS)입니다.

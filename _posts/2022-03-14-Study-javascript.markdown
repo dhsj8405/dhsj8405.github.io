@@ -120,7 +120,7 @@ function outter(){
     }
 }
 
-var innter = new outter();
+var inner = new outter();
 console.log(innter.getX());
 console.log(innter.x)
 
