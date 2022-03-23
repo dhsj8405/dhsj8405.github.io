@@ -4,8 +4,7 @@ layout: post
 title: '채팅 어플리케이션'
 subtitle: '채팅 어플리케이션'
 categories: projects
-tags: projects
-comments: true
+tags: toyChatting
 
 ---
 
