@@ -128,9 +128,84 @@ comments: true
 
 - Recoil(리코일)  
     - 리덕스에선 action,reducer,selector,store를 초기에 세팅하는 코드들이 많음  
-    = Redux의 store은 리액트의 상태와는 별개의 것이기 때문에 리액트의 상태와 리덕스의 상태를 일치 시키는 작업  
+    = Redux의 store은 리액트의 상태와는 별개의 것(리액트 내부 스케쥴러 접근불가)이기 때문에 리액트의 상태와 리덕스의 상태를 일치 시키는 작업  
+    
     - 리액트를 위한 상태 관리 라이브러리
+    - 방향이 있는 그래프가 직교한 형태
 
+    - Atom
+        - 상태의 단위. 업데이트가 가능하고 구독이 가능( 컴포넌트가 구독할 수 있는 React State라 생각하면 됨)
+        - 값 변경시 구독하고 있는 컴포넌트들 리 렌더링
+        - 리액트의 지역 컴포넌트 상태에서 사용된다.
+        - 같은 아톰이 여러 컴포넌트에 사용되면, 그 모든 컴포넌트들은 그 상태를 공유
+        - 키 값은 고유해야함
+        ```
+        const fontSizeState = atom({
+            key: 'fontSizeState',
+            default: 14,
+        });
+        ```
+
+    - Selector (선택자)  
+        - 순수함수
+        - 아톰이나 다른 선택자를 입력값으로 받음  
+        = 다른 atom에 의존하는 동적인 데이터 만들 수 있음 
+        - `멱등성(idempotent)을가진 함수`  
+        = 연산을 여러번 적용하여도 달라지지 않는 성질
+        - useRecoilValue로만 상태를 조회해야한다.
+        - 키 값은 고유해야함(selector 식별시 사용)
+        - 읽기전용 selector
+            ```
+            const fontSizeLabelState = selector({
+                key: 'fontSizeLabelState',
+                get: ({get}) = > {
+                    const fontSize = get(fontSizeState);
+                    const unit = 'px';
+
+                    return `${fontSize}${unit}`;
+                },
+            })
+            ```
+        - 읽,쓰 가능한 양방향 selector  
+            - useRecoilState 훅 사용가능  
+            ```
+                
+            ```
+    - useRecoilState  
+        - 컴포넌트에서 아톰을 읽고 쓰기 위해 사용하는 훅  
+        - 양방향 selector에서는 사용 가능  
+        - useState와 다르게 상태를 컴포넌트간 공유 가능  
+            ```
+            function FontButton() {
+                const[fontSize, setFontSzie] = useRecoilState(fontSizeState);
+                return(
+                    <button onClick={() => setFontSize((size) => size + 1 )} style = {{fontSize}}>Click to Enlarge
+                    </button>
+                );
+            }
+            ```
+    - useSetRecoilState  
+        - setter함수만 반환(값만 변경시키고 싶을때)
+    - useRecoilValue()
+        -  아톰과 선택자를 매개변수로 받아서 상응하는 값을 반환한다.
+             - 선택자 읽기 가능
+
+             ```
+            function FontButton(){
+                 const [fontSize, setFontSize] = useRecoilState(fontSizeState);
+                 const fontSizeLabel = useRecoilValue(fontSizeLabelState);
+
+                 return (
+                     <>
+                        <div>Current font size: {fontSizeLabel}</div>
+
+                        <button onClick={()=> setFontSize(fontSize+1)} style = {{fontSize}}>
+                        Click to Enlarge
+                        </button>
+                     </>
+                 )
+             }
+            ```
 ## webpack
 
 ## babel
