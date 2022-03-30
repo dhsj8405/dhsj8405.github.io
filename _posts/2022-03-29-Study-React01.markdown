@@ -132,6 +132,7 @@ comments: true
     
     - 리액트를 위한 상태 관리 라이브러리
     - 방향이 있는 그래프가 직교한 형태
+        ![image](https://user-images.githubusercontent.com/60701130/160526418-347dde6e-6aad-4708-9109-ffc00acbdaee.png)
 
     - Atom
         - 상태의 단위. 업데이트가 가능하고 구독이 가능( 컴포넌트가 구독할 수 있는 React State라 생각하면 됨)
