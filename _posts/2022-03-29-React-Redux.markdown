@@ -23,4 +23,4 @@ comments: true
 - yarn 설치
 `npm install -g yarn`
 - redux 설치
-`yarn add redux`
+`yarn add redux` 
