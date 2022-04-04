@@ -172,7 +172,7 @@ comments: true
             ```
                 
             ```
-    - useRecoilState  
+    - useRecoilState   
         - 컴포넌트에서 아톰을 읽고 쓰기 위해 사용하는 훅  
         - 양방향 selector에서는 사용 가능  
         - useState와 다르게 상태를 컴포넌트간 공유 가능  
