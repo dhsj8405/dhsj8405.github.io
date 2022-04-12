@@ -98,7 +98,7 @@ staff정보(접수자`reservation  테이블의 user_staff_no`와 user테이블 
 ![image](https://user-images.githubusercontent.com/60701130/149467879-675554c8-4d30-4c1b-ab9a-87ef6711f1d0.png)
 
 모든 직원이 볼 수 있는 공지사항 페이지 입니다. 등록,수정,삭제는 관리자만 가능합니다.
-
+ 
 ### 근무관리 페이지(FullCalendar API)
 ![image](https://user-images.githubusercontent.com/60701130/149489930-bc6f47d8-31dc-4538-a17b-c4464caa79b2.png)
 
