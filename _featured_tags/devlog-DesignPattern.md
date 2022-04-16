@@ -2,7 +2,7 @@
 layout: tag-blog
 title: DesignPattern
 slug: designPattern
-category: devlog
+category: 
 menu: false
 order: 15
 ---
