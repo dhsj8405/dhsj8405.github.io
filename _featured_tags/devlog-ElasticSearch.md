@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: kafka
-slug: kafka
+title: Elasticsearch
+slug: Elasticsearch
 category: 
 menu: false
 order: 10

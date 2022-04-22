@@ -132,12 +132,12 @@ code,data,heap영역 공유
 지역 변수(메소드 내에서 선언된 변수들),  
 매개변수(메소드 파라미터)가 저장된다.
 메소드가 호출될 때 메모리에 할당되고 종료되면 메모리가 해제됨  
-`특징` 선언된 블록 안에서만 유효
+scope : local (선언된 블록 안에서만 유효)
 
 ### heap
 new 키워드를 통해 생성되는 객체,  
 배열,스트링들이 저장된다.
-
+scope : global
 
 #### 스트링 생성방식에 따른 차이  
 ![image](https://user-images.githubusercontent.com/60701130/150914424-330ad15d-60de-420b-ab42-7a82e52758f0.png)  
@@ -146,7 +146,7 @@ new 키워드를 통해 생성되는 객체,
 |생성방식|new|리터럴|
 |:---|:---|:---|
 |저장 장소|heap영역|heap(string pool)|
-|동장 방식|같은 문자열 존재해도 다른 주소 반환 |string pool에 "strByLiteral" 문자열을 해싱한 해싱 값(hashCode)가 있으면 해당 주소값 반환, 그렇지않으면 hashCode를 저장하고 새로운 주소값 반환|
+|동장 방식|string pool에 "strByLiteral" 문자열이 있으면 해당 주소값 반환, 그렇지않으면 저장하고 새로운 주소값 반환|
 |동일한 문자열 비교시|.equals로 비교해야 true|==으로 비교해야 동일성, 즉 두 객체의 주소까지 같은지 알 수 있다. |  
 
 ![image](https://user-images.githubusercontent.com/60701130/150916649-3281be62-9a9c-4e6c-afa5-fbcd89d59219.png)
@@ -341,10 +341,10 @@ static 변수, static 메소드만 접근가능
 
 
 사용 목적 : 순수함수 만들때 사용
-- 순수함수(유틸함수)
+- 순수함수(유틸함수)  
 바깥의 데이터를 사용하지않음
-예) y = f(x) :  순수함수 아님
-예) max(x1,x2); , parseInt("10");
+예) y = f(x) :  순수함수 아님  
+예) max(x1,x2); , parseInt("10");  
 입력파라미터만받아서 내부에서 작업 후 리턴
 
 [클래스 메소드 실습 1-1](https://github.com/dhsj8405/javastudy/blob/master/chapter03/src/main/java/chapter03/ArrayUtilTest.java)  

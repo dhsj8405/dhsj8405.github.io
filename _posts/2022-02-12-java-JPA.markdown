@@ -1,0 +1,18 @@
+---
+layout: post
+title: 'JPA'
+subtitle: 'JPA'
+categories: devlog
+tags: java
+comments: true
+---
+
+
+# JPA(Java Persistence API)
+
+ORM을 사용하기 위해 만든 인터페이스
+- orm : 객체가 테이블이 되도록 매핑시켜주는것  
+쿼리가아닌 코드로 데이터 조작가능
+
+장점: 메서드 호출로 쿼리수행 -> 생산성 향상 
+

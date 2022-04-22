@@ -1,0 +1,212 @@
+---
+
+layout: post
+title: '리액트 면접질문1'
+subtitle: '리액트 면접질문1'
+categories: study
+tags: study
+comments: true
+
+---
+
+# 리액트
+
+## State(상태)
+웹 애플리케이션을 렌더(render)하는데 있어 영향을 미칠 수 있는 값
+
+- 상태를 여러 컴포넌트가 공통적으로 접근하고 공유해야 하는 경우 사용하는 방법     
+    - 상태 끌어올리기  
+        부모 컴포넌트에 상태 선언하는 기법  
+        `상태를 사용하지 않는 컴포넌트에도 props drilling이 발생`  
+        - 컴포넌트 합성  
+            ```
+                function App() {
+                    const [state, setState] = useState('state');
+                return (
+                    <>
+                    <Header 
+                        logo={<Logo state={state} />}
+                        setting={<Setting setState={setState} />}
+                    />
+                    ...
+                    </>
+                );
+                }       
+            ```
+            상태와 setter함수를 직접 념겨주는 방식이아닌 props로 아예 컴포넌트를 넘겨주는 방식  
+            `성 방식 역시 깊어지는 계층 간의 구조에서는 여전히 복잡`  
+            - Context API  
+            context를 이용하면 단계마다 일일이 props를 넘겨주지 않고도 컴포넌트 트리 전체에 데이터를 제공할 수 있다.    
+            `값에 변화 발생했을 때 context를 구독하고 있는 모든 컴포넌트들이 리렌더링 발생`  
+            = 상태관리 라이브러리 필요 이유
+
+## 상태관리 라이브러리
+- Redux(리덕스)  
+    - 세 가지 원칙
+        1. Single source of truth  
+        동일한 데이터는 항상 같은 곳에서 가지고 온다  
+        = 하나뿐인 데이터 공간(스토어)이 있다
+        2. State is read-only  
+        리덕스에서는 액션이라는 객체를 통해서만 상태를 변경할 수 있다.
+        3. Changes are made with pure functions  
+        변경은 순수함수로만 가능하다.  
+
+    ![image](https://user-images.githubusercontent.com/60701130/160406014-9c019340-565f-4564-8911-06b59d5a2689.png)
+    - 스토어  
+        - 앱에서 필요한 상태를 담는 공간(컴포넌트와 별개 공간)
+        - 하나의 프로젝트는 하나의 스토어만 가질 수 있다.
+        - 내장함수
+            - dispatch()
+                -  액션 객체를 넘겨줘서 상태를 업데이트 하는 유일한 방법
+            - Subscribe()
+                - 리스너 함수를 파라미터로 넣어 호출하면 상태가 업데이트될 때마다 호출된다
+                ```
+                    const listener = () => {
+                        console.log('상태가 업데이트됨')
+                    }
+                    const unsubscribe = store.subsribe(listener)
+                    unsubscribe() // 추후 구독을 비활성화할 때 함수를 호출
+                ```
+            - selector()
+                - 상태 값을 가져올 때 사용
+    - 액션  
+        - 스토어로 data 보내는 방법
+        - 자바스크립트 객체 형식
+        - type필드를 반드시 가지고 있어야 한다.
+        ```
+        {
+            type: 'ADD_TODO',
+            data: {
+                id: 1,
+                text: '리덕스 배우기'
+            }
+        }
+        ```
+        - Action Creator(액션 생성자)  
+        액션 객체를 만들어주는 함수
+        ```
+            function addTodo(data) {
+                return {
+                    type: 'ADD_TODO',
+                    data,
+                }
+            }
+        ```
+    - Reducer(리듀서)  
+    현재 상태와 액션 객체를 받아, 필요하다면 새로운 상태를 리턴하는 함수
+    ```
+    const initialState = {
+        counter: 1,
+    }
+    function reducer(state = initialState, action) {
+        switch (action.type) {
+            case INCREMENT:
+                return {
+                    counter: state.counter + 1,
+                }
+            default:
+                return state
+        }
+    }
+    ```
+    
+    - 흐름
+        - 초기 상태
+
+            - root reducer 함수를 사용하여 만들어진 리덕스 스토어가 있다.
+            - 스토어는 root reducer를 한번 호출하고 리턴 값을 초기 상태로 저장한다.
+            - UI가 처음 렌더링될 때, UI 컴포넌트는 리덕스 스토어의 상태에 접근하여 그것을 렌더링에 활용한다. 또한 그것들은 후에 상태의 변화가 업데이트 되는 것을 구독한다.
+        - 업데이트(순서)
+
+            1. 유저가 버튼을 클릭한다.
+            2. 앱은 유저의 행동에 맞는 디스패치를 실행해 액션을 일으킨다.
+            3. 스토어는 이전 상태와 현재 액션으로 리듀서 함수를 실행하고, 그 리턴 값을 새로운 상태로 저장한다.
+            4. 스토어는 스토어를 구독하고 있던 UI들에게 업데이트 되었다고 알려준다.
+            5. 스토어의 데이터가 필요한 각각의 UI들은 필요한 상태가 업데이트 되었는지 확인한다.
+            6. 데이터가 변경된 각 구성요소는 새 데이터로 강제로 다시 렌더링하므로 화면에 표시되는 내용을 업데이트 할 수 있다.
+
+
+- Recoil(리코일)  
+    - 리덕스에선 action,reducer,selector,store를 초기에 세팅하는 코드들이 많음  
+    = Redux의 store은 리액트의 상태와는 별개의 것(리액트 내부 스케쥴러 접근불가)이기 때문에 리액트의 상태와 리덕스의 상태를 일치 시키는 작업  
+    
+    - 리액트를 위한 상태 관리 라이브러리
+    - 방향이 있는 그래프가 직교한 형태
+        ![image](https://user-images.githubusercontent.com/60701130/160526418-347dde6e-6aad-4708-9109-ffc00acbdaee.png)
+
+    - Atom
+        - 상태의 단위. 업데이트가 가능하고 구독이 가능( 컴포넌트가 구독할 수 있는 React State라 생각하면 됨)
+        - 값 변경시 구독하고 있는 컴포넌트들 리 렌더링
+        - 리액트의 지역 컴포넌트 상태에서 사용된다.
+        - 같은 아톰이 여러 컴포넌트에 사용되면, 그 모든 컴포넌트들은 그 상태를 공유
+        - 키 값은 고유해야함
+        ```
+        const fontSizeState = atom({
+            key: 'fontSizeState',
+            default: 14,
+        });
+        ```
+
+    - Selector (선택자)  
+        - 순수함수
+        - 아톰이나 다른 선택자를 입력값으로 받음  
+        = 다른 atom에 의존하는 동적인 데이터 만들 수 있음 
+        - `멱등성(idempotent)을가진 함수`  
+        = 연산을 여러번 적용하여도 달라지지 않는 성질
+        - useRecoilValue로만 상태를 조회해야한다.
+        - 키 값은 고유해야함(selector 식별시 사용)
+        - 읽기전용 selector
+            ```
+            const fontSizeLabelState = selector({
+                key: 'fontSizeLabelState',
+                get: ({get}) = > {
+                    const fontSize = get(fontSizeState);
+                    const unit = 'px';
+
+                    return `${fontSize}${unit}`;
+                },
+            })
+            ```
+        - 읽,쓰 가능한 양방향 selector  
+            - useRecoilState 훅 사용가능  
+            ```
+                
+            ```
+    - useRecoilState   
+        - 컴포넌트에서 아톰을 읽고 쓰기 위해 사용하는 훅  
+        - 양방향 selector에서는 사용 가능  
+        - useState와 다르게 상태를 컴포넌트간 공유 가능  
+            ```
+            function FontButton() {
+                const[fontSize, setFontSzie] = useRecoilState(fontSizeState);
+                return(
+                    <button onClick={() => setFontSize((size) => size + 1 )} style = {{fontSize}}>Click to Enlarge
+                    </button>
+                );
+            }
+            ```
+    - useSetRecoilState  
+        - setter함수만 반환(값만 변경시키고 싶을때)
+    - useRecoilValue()
+        -  아톰과 선택자를 매개변수로 받아서 상응하는 값을 반환한다.
+             - 선택자 읽기 가능
+
+             ```
+            function FontButton(){
+                 const [fontSize, setFontSize] = useRecoilState(fontSizeState);
+                 const fontSizeLabel = useRecoilValue(fontSizeLabelState);
+
+                 return (
+                     <>
+                        <div>Current font size: {fontSizeLabel}</div>
+
+                        <button onClick={()=> setFontSize(fontSize+1)} style = {{fontSize}}>
+                        Click to Enlarge
+                        </button>
+                     </>
+                 )
+             }
+            ```
+## webpack
+ 
+## babel

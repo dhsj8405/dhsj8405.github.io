@@ -1,0 +1,64 @@
+---
+
+layout: post
+title: '[centOS]Linux 서버시간 동기화'
+subtitle: '[centOS]Linux 서버시간 동기화'
+categories: devlog
+tags: centOS
+comments: true
+
+---
+
+
+# 본인 서버시간, 타임 서버 시간(time.bora.net) 확인하기
+
+```linux
+[root@localhost]# date							// 본인 서버시간
+[root@localhost]# rdate -p time.bora.net		// 타임 서버시간
+```
+
+# 서버 시간 동기화
+
+
+1. 실행 스크립트 만들기 (주기적으로 동기화 하기위해 cron 작업하기위함)
+	-	cron : 시스템 운영에 필요한 일상적이고 주기적인 작업을 지정된 시간에 반복적으로 수행함
+
+	/etc/cron.hourly 밑에 time_sync.sh 생성
+	```linux
+	[root@localhost cron.hourly]# vi time_sync.sh
+	```
+	`vi 명령어`  
+	i // insert 모드  
+	esc // 명령어 모드  
+	:q! //  저장없이 나가기  
+	:wq // 저장하고나가기  
+
+	<span style = "font-weight : bold">실행스크립트 (time_sync.sh )</span>
+	```
+	#!/bin/bash  
+	rdate -s time.bora.net && date && clock -r && clock -w > /dev/null 2>&1
+	```
+	- 2>&1 는 표준에러를 표준출력으로 redirection 하라는 의미  
+	0 : 표준입력  
+	1 : 표준출력  
+	2 : 표준에러  
+/dev/null : (/dev/null 은 그냥 없는 공간)로 옮겨라 = 버리다  
+2(표준에러) 1(표준출력)으로 redirection 합니다.  
+<span style = "color : red">결국 결과는 표준출력이 되기 때문에 /dev/null로 버려지고, 화면에 결과가 뿌려지지 않게 됨</span>
+
+2. 실행하기위해 권한 700 준다.  
+	
+	(1) 권한 확인하기
+	```linux
+	[root@localhost cron.hourly]# ls -l time_sync.sh
+	```
+	(2) 권한 700 주기
+	```linux
+	[root@localhost]# chmod 700 time_sync.sh
+	```
+
+
+
+3. 동기화 확인
+	적용하고 시간 동기화 확인 안됐는데 다음날 확인해보니 돼있음  
+	바로 적용은 안되고 주기에 맞춰 그 다음부터 적용되나봄

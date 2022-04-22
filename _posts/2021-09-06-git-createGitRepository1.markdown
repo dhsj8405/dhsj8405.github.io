@@ -23,20 +23,26 @@ fetch
 
 # 로컬 깃저장소 만들기 
  ## 1. GitHub 저장소를 원격 저장소로 등록
+(1) 깃허브에서 레포지토리 생성  
+(2) 터미널로 메이븐프로젝트(homepractice)가 있는 폴더로이동
+ex)C:\eclipse\workspace\douzone\homepractice  
 
-git init
-git add -A
-git commit -m "first commit"
-git branch -M main
-git remote add origin github.com/dhsj8405
-git push -u origin main
+```
+git init  
+git add -A  
+git commit -m "first commit"  
+git branch -M main  
+git remote add origin https://github.com/dhsj8405/homepractice.git
+git push -u origin main  
+```
 
-프로젝트 오른쪽 클릭 team - share project 에서 Use or create repository in parent folder of project, (Create Repository 누르고 )하위 내용 체크
- ## 2. git 저장위치 확인용 git perspective 생성하기(git repository)
+프로젝트 오른쪽 클릭 - team - share project 에서 Use or create repository in parent folder of project, (Create Repository 누르고 )하위 내용 체크  
+
+ ## 2. git 저장위치 확인용 git perspective 생성하기(git repository)  
 window - show view - other - git - git repositories 오픈
 * local 레포지토리 = .git 디렉토리 
 
-원격저장소만들기
+원격저장소만들기  
 깃 repository의 javastudy 에서 Remotes 오른쪽 클릭 create remote - ok - change - 깃 링크 주소 넣고 Authentication에 깃의 사용자이름, 비밀번호 입력
 
  ## 3. gitignore 생성 (원격 저장소에 관리하지 말아야되는 파일 지정해주는 것)
