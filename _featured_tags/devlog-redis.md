@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: kafka
-slug: kafka
+title: redis
+slug: redis
 category: 
 menu: false
 order: 10
