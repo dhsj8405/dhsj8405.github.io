@@ -55,6 +55,7 @@ comments: true
 .m2/repository 안의 라이브러리들 전부 삭제하고 다시 메이븐 업데이트 
 
 2. regeneratorRuntime is not defined  
+async await 사용시 에러발생
 커맨드 설치
     ```
     > npm install --save-dev @babel/plugin-transform-runtime
