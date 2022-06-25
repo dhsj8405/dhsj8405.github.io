@@ -174,21 +174,22 @@ comments: true
 	`kill -9 1480`  
 	`kill -9 1660`  
 
-2) 서비스 등록하기  
-	`vi /usr/lib/systemd/system/mysql.service`
+2) 서비스 등록하기    
+	`vi /usr/lib/systemd/system/mysql.service`  
+	
 	```
-	[Unit]
-	Description=MySQL Community Server
-	After=network.target
-	After=syslog.target
+	[Unit]  
+	Description=MySQL Community Server  
+	After=network.target  
+	After=syslog.target  
 
-	[Install]
-	WantedBy=multi-user.target
-	Alias=mysql.service
+	[Install]  
+	WantedBy=multi-user.target  
+	Alias=mysql.service  
 
-	[Service]
-	User=mysql
-	Group=mysql
+	[Service]  
+	User=mysql  
+	Group=mysql  
 
 	# Execute pre and post scripts as root
 	PermissionsStartOnly=true
@@ -197,7 +198,7 @@ comments: true
 	#ExecStartPre=
 
 	# Start main service
-	ExecStart=/usr/local/douzone/mysql/bin/mysqld_safe
+	ExecStart=/usr/local/douzone/mariadb/bin/mysqld_safe
 
 	# Don't signal startup success before a ping works
 	#ExecStartPost=
