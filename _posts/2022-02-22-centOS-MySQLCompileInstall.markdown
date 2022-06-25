@@ -66,7 +66,7 @@ comments: true
 `chown -R mysql:mysql /usr/local/douzone/mariadb`
 
 - mysql 데몬을 뛰우기 전에 소켓 만드는 것을 root가 하기 때문에 tmp 디렉터리의 group 소유권은 root로 변경합니다.  
-`chown mysql:root /usr/local/douzone/mysql/tmp`
+`chown mysql:root /usr/local/douzone/mariadb/tmp`
 	
 - 변경확인
 	ls -l /usr/local/douzone/
