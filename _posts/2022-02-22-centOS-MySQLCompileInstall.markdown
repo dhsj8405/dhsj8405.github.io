@@ -100,7 +100,7 @@ comments: true
 	# The following options will be passed to all MySQL clients
 	[client]
 	port            = 3306
-	socket         = /usr/local/victolee/mysql/tmp/mysql.sock
+	socket         = /usr/local/douzone/mariadb/tmp/mysql.sock
 	character-set   = utf8
 
 	# Here follows entries for some specific programs
@@ -108,7 +108,7 @@ comments: true
 	# The MySQL server
 	[mysqld]
 	port            = 3306
-	socket         = /usr/local/victolee/mysql/tmp/mysql.sock
+	socket         = /usr/local/douzone/mariadb/tmp/mysql.sock
 	key_buffer_size = 256M
 	max_allowed_packet = 1M
 	table_open_cache = 256
