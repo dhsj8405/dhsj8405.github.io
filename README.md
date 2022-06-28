@@ -18,9 +18,13 @@ Spring boot와 React를 주로 사용합니다.
 
 - 미남초/내성중/동래고 졸업
 
-## 프로젝트
+## 프로젝트  
 
-- [hisystem](https://github.com/douzone-history) - 의료정보체계시스템
+교육 프로젝트  
+- [hisystem](https://github.com/douzone-history) - 의료정보체계시스템  
+사이드 프로젝트(토이프로젝트)  
+- [chatService](https://github.com/dhsj8405/homepractice/tree/main/frontend/react/chat-practice-redux) - 채팅서비스(stomp,redis,redux..계속해서 기술적고도화중)  
+
 
 
 ## 하고싶은 말
