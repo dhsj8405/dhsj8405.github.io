@@ -66,7 +66,7 @@ comments: true
 `chown -R mysql:mysql /usr/local/douzone/mariadb`
 
 - mysql 데몬을 뛰우기 전에 소켓 만드는 것을 root가 하기 때문에 tmp 디렉터리의 group 소유권은 root로 변경합니다.  
-`chown mysql:root /usr/local/douzone/mysql/tmp`
+`chown mysql:root /usr/local/douzone/mariadb/tmp`
 	
 - 변경확인
 	ls -l /usr/local/douzone/
@@ -100,7 +100,7 @@ comments: true
 	# The following options will be passed to all MySQL clients
 	[client]
 	port            = 3306
-	socket         = /usr/local/victolee/mysql/tmp/mysql.sock
+	socket         = /usr/local/douzone/mariadb/tmp/mysql.sock
 	character-set   = utf8
 
 	# Here follows entries for some specific programs
@@ -108,7 +108,7 @@ comments: true
 	# The MySQL server
 	[mysqld]
 	port            = 3306
-	socket         = /usr/local/victolee/mysql/tmp/mysql.sock
+	socket         = /usr/local/douzone/mariadb/tmp/mysql.sock
 	key_buffer_size = 256M
 	max_allowed_packet = 1M
 	table_open_cache = 256
@@ -174,21 +174,22 @@ comments: true
 	`kill -9 1480`  
 	`kill -9 1660`  
 
-2) 서비스 등록하기  
-	`vi /usr/lib/systemd/system/mysql.service`
+2) 서비스 등록하기    
+	`vi /usr/lib/systemd/system/mysql.service`  
+	
 	```
-	[Unit]
-	Description=MySQL Community Server
-	After=network.target
-	After=syslog.target
+	[Unit]  
+	Description=MySQL Community Server  
+	After=network.target  
+	After=syslog.target  
 
-	[Install]
-	WantedBy=multi-user.target
-	Alias=mysql.service
+	[Install]  
+	WantedBy=multi-user.target  
+	Alias=mysql.service  
 
-	[Service]
-	User=mysql
-	Group=mysql
+	[Service]  
+	User=mysql  
+	Group=mysql  
 
 	# Execute pre and post scripts as root
 	PermissionsStartOnly=true
@@ -197,7 +198,7 @@ comments: true
 	#ExecStartPre=
 
 	# Start main service
-	ExecStart=/usr/local/douzone/mysql/bin/mysqld_safe
+	ExecStart=/usr/local/douzone/mariadb/bin/mysqld_safe
 
 	# Don't signal startup success before a ping works
 	#ExecStartPost=
