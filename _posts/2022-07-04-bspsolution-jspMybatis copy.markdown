@@ -15,18 +15,17 @@ jQuery JavaScript 라이브러리를 위한 플러그인
 => 빠르게 게시판 보드 구현가능하게하는 라이브러리
 
 ### 속성
- searching: false      // 검색 기능 숨기기
- ordering : false      // 정렬 기능 숨기기
- paging: false         // 페이징 기능 숨기기
-
- processing            // 서버측 처리를 위한 테이블 처리 중일 때 '처리중'이라는 표시를 띄움
- =>대량의 데이터 테이블에서 유용(ex:항목정렬시)
- serverSide            // 서버 측 처리를 위해 사용 
+ searching: false      // 검색 기능 숨기기  
+ ordering : false      // 정렬 기능 숨기기  
+ paging: false         // 페이징 기능 숨기기  
+ processing            // 서버측 처리를 위한 테이블 처리 중일 때 '처리중'이라는 표시를 띄움  
+ =>대량의 데이터 테이블에서 유용(ex:항목정렬시)  
+ serverSide            // 서버 측 처리를 위해 사용  
  => 데이터처리가 많아질 때 서버 처리가 좋음
 
 `주의할 점`  
 - .dataTable();  
-    반환값 : jQuery 오브젝트
+    반환값 : jQuery 오브젝트  
 - .DataTable();  
     반환값 : DataTable의 API 오브젝트  
 
@@ -56,10 +55,10 @@ jQuery JavaScript 라이브러리를 위한 플러그인
 ```
 
 ## collection
-     1:N 관계의 테이블을 조인할 때 사용 (조인 객체)
-    ex) 1개의 Comment에는 M개의 Reply가 존재
-
-    property : 조인객체명 / ofType : collection의 자료형(제네릭)
+1:N 관계의 테이블을 조인할 때 사용 (조인 객체)
+ex) 1개의 Comment에는 M개의 Reply가 존재
+- property : 조인객체명 
+- ofType : collection의 자료형(제네릭)
 
     ```
       private List<Reply> replies;
@@ -106,6 +105,7 @@ jQuery JavaScript 라이브러리를 위한 플러그인
 1:1 관계의 테이블을 조인할 때 사용 (조인 객체)
 ex) 1개 Comment 에는 1명의 User만 존재
   - property : 조인객체명 / javaType : 조인객체의 자료형
+
 ```
     private User user;
 ```
