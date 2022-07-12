@@ -4,7 +4,7 @@ layout: post
 title: 'bspsolution01 - jsp,mybatis'
 subtitle: 'bspsolution01 - jsp,mybatis'
 categories: devlog
-tags: react
+tags: bspsolution
 comments: true
 
 ---

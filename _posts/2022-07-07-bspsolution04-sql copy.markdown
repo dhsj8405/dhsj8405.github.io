@@ -4,7 +4,7 @@ layout: post
 title: 'bspsolution04 - sql'
 subtitle: 'bspsolution04 - sql'
 categories: devlog
-tags: react
+tags: bspsolution
 comments: true
 
 ---
